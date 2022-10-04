@@ -16,29 +16,48 @@
 body {
     font-size: 16px;
     font-family: Arial;
-    overflow-x: hidden;
+   
 }
 
 h1 {
-    font-size: 2.125em;
+    font-size: 1.725em;
     font-weight: normal;
 }
 
 h2 {
     font-size: 4em;
+    font-weight: normal;
+    color: var(--blue-color);
+    margin-bottom: 30px;
+}
+
+p {
+    line-height: 32px; /* 40px for 24px font */
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+section {
+    padding-top: var(--page-padding);
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
 }
 
 .button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 420px;
-    height: 60px;
+    width: 380px;
+    height: 55px;
     background-color: var(--orange-color);
     border-radius: 100px;
     text-decoration: none;
     color: #FFFFFF;
-    font-size: 1.5em;
+    font-size: 1.125em;
     transition: color 0.4s, background-color 0.4s, border-color 0.4s !important;
 }
 
@@ -62,7 +81,7 @@ h2 {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 50px;
     display: flex;
     align-items: center;
@@ -144,7 +163,6 @@ h2 {
     position: relative;
     background-image: url("../images/carpet-1.png");
     z-index: 0;
-    padding: 0 var(--page-padding);
     padding-top: 100px; /* To respect absolute nav */
     color: #FFFFFF;
     text-align: center;
@@ -170,7 +188,9 @@ h2 {
 
 .service-selector h2 {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #FFFFFF;
 }
 
 .service-selector-slide {
@@ -283,7 +303,8 @@ h2 {
 .service-selector .slide-dots {
     display: block;
     text-align: center;
-    margin: 20px 0;
+    margin-top: 15px;
+    margin-bottom: 30px;
 }
 
 .service-selector .slide-dots .dot {
@@ -314,4 +335,44 @@ h2 {
 
 .service-selector .button:first-of-type {
     margin-right: 20px;
+}
+
+.about {
+    padding: 0;
+    margin: var(--page-padding); /* for absolute caption */
+    position: relative;
+}
+
+.about .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.about .text {
+    flex-basis: 40%;
+}
+
+.about .image img {
+    object-position: 0 40px;
+    border: 10px solid #F3F3F3;
+    border-radius: 100%;
+    width: 100%;
+    max-width: 600px;
+}
+
+.about .image .caption {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.about .image .caption span {
+    display: block;
+    color: var(--text-color);
+    font-size: 0.875em;
+}
+
+.about .image .caption #name {
+    color: #000000;
 }
