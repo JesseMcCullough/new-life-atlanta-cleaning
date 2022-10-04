@@ -24,8 +24,25 @@
             <a href="#" class="button">Schedule</a>
         </div>
     </div>
-    <section class="service-selector-slide">
-
+    <section class="service-selector">
+        <h1>I need to clean my ... </h1>
+        <h2>Carpet</h2>
+        <div class="service-selector-slide">
+            <div class="left-arrow"><span>&lt;</span></div>
+            <div class="item left"></div>
+            <div class="item middle"></div>
+            <div class="item right"></div>
+            <div class="right-arrow"><span>&gt;</span></div>
+        </div>
+        <div class="slide-dots">
+            <div class="dot"></div>
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <a href="#" class="button secondary">Learn about carpet cleaning</a>
+        <a href="#" class="button">Schedule carpet cleaning</a>
     </section>
 </body>
 </html>
