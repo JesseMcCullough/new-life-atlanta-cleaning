@@ -53,11 +53,52 @@
             </div>
             <div class="image">
                 <div class="caption">
-                    <span id="name">Ken &amp; Penny McCullough</span>
-                    <span id="title">Owners / Operators</span>
+                    <span class="name">Ken &amp; Penny McCullough</span>
+                    <span class="title">Owners / Operators</span>
                 </div>
                 <img src="images/ken-penny.png" />
             </div>
+        </div>
+    </section>
+    <section class="reviews">
+        <div class="review">
+            <img src="images/review-1.png" class="profile" />
+            <span class="name">John D.</span>
+            <span class="location">City, ST</span>
+            <div class="stars">
+                <img src="images/star.png" class="star" />
+                <img src="images/star.png" class="star" />
+                <img src="images/star.png" class="star" />
+                <img src="images/star.png" class="star" />
+                <img src="images/star.png" class="star" />
+            </div>
+            <p>Aliquam auctor, est non aliquet sollicitudin, dui odio tristique dui, id pretium ante quam nec massa. Sed gravida ligula at erat vulputate commodo in vitae eros. Vestibulum neque odio, convallis a venenatis quis, fermentum et justo. In nec tortor a orci volutpat lacinia. In iaculis laoreet faucibus. Nulla egestas est ut blandit pharetra. Nunc vitae enim quam. Integer tristique odio eget facilisis laoreet.</p>
+        </div>
+        <div class="review">
+            <img src="images/review-1.png" class="profile" />
+            <span class="name">John D.</span>
+            <span class="location">City, ST</span>
+            <div class="stars">
+                <img src="images/star.png" class="star" />
+                <img src="images/star.png" class="star" />
+                <img src="images/star.png" class="star" />
+                <img src="images/star.png" class="star" />
+                <img src="images/star.png" class="star" />
+            </div>
+            <p>Aliquam auctor, est non aliquet sollicitudin, dui odio tristique dui, id pretium ante quam nec massa. Sed gravida ligula at erat vulputate commodo in vitae eros. Vestibulum neque odio, convallis a venenatis quis, fermentum et justo. In nec tortor a orci volutpat lacinia. In iaculis laoreet faucibus. Nulla egestas est ut blandit pharetra.</p>
+        </div>
+        <div class="review">
+            <img src="images/review-1.png" class="profile" />
+            <span class="name">John D.</span>
+            <span class="location">City, ST</span>
+            <div class="stars">
+                <img src="images/star.png" class="star" />
+                <img src="images/star.png" class="star" />
+                <img src="images/star.png" class="star" />
+                <img src="images/star.png" class="star" />
+                <img src="images/star.png" class="star" />
+            </div>
+            <p>Aliquam auctor, est non aliquet sollicitudin, dui odio tristique dui, id pretium ante quam nec massa. Sed gravida ligula at erat vulputate commodo in vitae eros. Vestibulum neque odio, convallis a venenatis quis, fermentum et justo. In nec tortor a orci volutpat lacinia. In iaculis laoreet faucibus. Nulla egestas est ut blandit pharetra. Nunc vitae enim quam. Integer tristique odio eget facilisis laoreet.asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdsadsadsadsadsadsad</p>
         </div>
     </section>
 </body>

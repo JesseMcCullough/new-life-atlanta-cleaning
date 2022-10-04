@@ -373,6 +373,51 @@ section {
     font-size: 0.875em;
 }
 
-.about .image .caption #name {
+.about .image .caption .name {
     color: #000000;
+}
+
+.reviews {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: var(--page-padding);
+}
+
+.reviews .review {
+    background-color: #F6F6F6;
+    flex-basis: 33.3%;
+    max-width: 450px;
+    border-radius: 25px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    word-break: break-word;
+    height: 100%;
+    transition: transform 0.4s;
+}
+
+.reviews .review span {
+    font-size: 0.875em;
+}
+
+.reviews .review p {
+    text-align: center;
+}
+
+.reviews .review .profile {
+    width: 128px;
+    height: 128px;
+    border-radius: 100%;
+    margin-bottom: 5px;
+}
+
+.reviews .review .star {
+    width: 32px;
+    height: 32px;
+    margin: 15px 0;
+}
+
+.reviews .review:hover {
+    transform: scale(1.05);
 }
