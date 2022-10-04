@@ -1,0 +1,89 @@
+:root {
+    --text-color: #5A5A5A;
+    --blue-color: #00C7FF;
+    --orange-color: #FFAF00;
+    --page-padding: 50px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: Arial;
+}
+
+.nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--page-padding);
+}
+
+.nav .logo {
+    margin-right: 50px;
+    position: relative;
+    top: 2px;
+}
+
+.nav .logo img {
+    width: 100px;
+}
+
+.nav ul {
+    list-style-type: none;
+    display: inline-block;
+}
+
+.nav ul li {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+.nav a {
+    list-style-type: none;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.nav .phone-cta {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.nav .phone-cta .phone {
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.nav .phone-cta .phone img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.nav .phone-cta .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 30px;
+    background-color: var(--orange-color);
+    border-radius: 100px;
+}
+
+.service-selector-slide {
+    width: 100vw;
+    height: 100vh;
+    background: green;
+}
