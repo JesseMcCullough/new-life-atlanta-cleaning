@@ -101,5 +101,12 @@
             <p>Aliquam auctor, est non aliquet sollicitudin, dui odio tristique dui, id pretium ante quam nec massa. Sed gravida ligula at erat vulputate commodo in vitae eros. Vestibulum neque odio, convallis a venenatis quis, fermentum et justo. In nec tortor a orci volutpat lacinia. In iaculis laoreet faucibus. Nulla egestas est ut blandit pharetra. Nunc vitae enim quam. Integer tristique odio eget facilisis laoreet.asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdsadsadsadsadsadsad</p>
         </div>
     </section>
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to schedule your cleaning?</h2>
+            <a href="#" class="button">Schedule cleaning</a>
+            <span class="or-call">or Call <span class="phone"><a href="tel:(678)318-1353">(678) 318-1353</a></span></span>
+        </div>
+    </section>
 </body>
 </html>

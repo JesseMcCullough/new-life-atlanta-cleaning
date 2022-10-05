@@ -47,6 +47,11 @@ section {
     padding-right: var(--page-padding);
 }
 
+.container {
+    max-width: 1900px;
+    margin: 0 auto;
+}
+
 .button {
     display: flex;
     justify-content: center;
@@ -420,4 +425,49 @@ section {
 
 .reviews .review:hover {
     transform: scale(1.05);
+}
+
+.cta {
+    height: 100vh;
+    background-color: var(--orange-color);
+    color: #FFFFFF;
+}
+
+.cta .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.cta h2 {
+    color: #FFFFFF;
+
+}
+
+.cta .button {
+    background-color: #FFFFFF;
+    color: var(--orange-color);
+    margin-bottom: 30px;
+}
+
+.cta .button:hover {
+    background-color: var(--white-hover-color);
+    color: var(--orange-hover-color);
+}
+
+.cta .or-call {
+    font-size: 1.125em; /* same as button font size */
+}
+
+.cta .or-call a {
+    color: #FFFFFF;
+    transition: color 0.4s;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cta .or-call a:hover {
+    color: var(--white-hover-color);
 }
