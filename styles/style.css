@@ -601,7 +601,6 @@ footer {
 .about {
     padding: 0;
     margin: var(--page-padding); /* for absolute caption */
-    position: relative;
 }
 
 .about .container {
@@ -612,6 +611,13 @@ footer {
 
 .about .text {
     flex-basis: 40%;
+    margin-right: var(--page-padding);
+}
+
+.about .image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .about .image img {
@@ -623,9 +629,8 @@ footer {
 }
 
 .about .image .caption {
-    position: absolute;
-    right: 0;
-    top: 0;
+    order: 1;
+    margin-top: 15px;
 }
 
 .about .image .caption span {
@@ -636,6 +641,23 @@ footer {
 
 .about .image .caption .name {
     color: #000000;
+}
+
+@media screen and (max-width: 1115px) {
+    .about .text {
+        flex-basis: 60%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .about .text {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .about .container {
+        flex-direction: column;
+    }
 }
 
 .reviews {
