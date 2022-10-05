@@ -349,13 +349,21 @@ footer {
     }
 }
 
+@media screen and (max-width: 500px) {
+    .nav .mobile-menu-icon {
+        width: auto; /* to fix phone from wrapping and not having to reduce font size.*/
+    }
+}
+
 
 .service-selector {
-    min-height: 100vh;
+    height: max(500px, 100vh);
     position: relative;
     background-image: url("../images/carpet-1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     z-index: 0;
-    padding-top: 100px; /* To respect absolute nav */
+    padding-top: 100px; /* To respect absolute nav for DESKTOP, maybe not for mobile */
     color: #FFFFFF;
     text-align: center;
 }
@@ -370,6 +378,13 @@ footer {
     width: 100%;
     height: 100%;
     z-index: -1;
+}
+
+.service-selector .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
 }
 
 .service-selector h1 {
@@ -393,12 +408,12 @@ footer {
 }
 
 .service-selector-slide .left {
-    left: 150px;
+    left: 7%;
     background-image: url("../images/vct-1.png");
 }
 
 .service-selector-slide .right {
-    right: 150px;
+    right: 7%;
     background-image: url("../images/upholstery-1.png");
 }
 
@@ -420,6 +435,10 @@ footer {
     border-color: var(--white-hover-color);
 }
 
+.service-selector-slide .item {
+    flex-shrink: 0;
+}
+
 .service-selector-slide .item::before {
     content: "";
     position: absolute;
@@ -437,8 +456,12 @@ footer {
 }
 
 .service-selector-slide .middle {
-    width: 525px;
-    height: 525px;
+    /* width: 525px;
+    height: 525px; */
+    width: 33vw;
+    height: 33vw;
+    max-width: 525px;
+    max-height: 525px;
     z-index: 1;
     background-image: url("../images/carpet-1.png");
 }
@@ -449,24 +472,33 @@ footer {
 
 .service-selector-slide .left,
 .service-selector-slide .right {
-    width: 375px;
-    height: 375px;
+    /* width: 375px;
+    height: 375px; */
+    width: 25vw;
+    height: 25vw;
+    max-width: 375px;
+    max-height: 375px;
 }
 
 .service-selector-slide .left-arrow,
 .service-selector-slide .right-arrow {
-    width: 60px;
-    height: 60px;
+    width: 4vw;
+    height: 4vw;
+    max-width: 60px;
+    max-height: 60px;
+    min-width: 30px;
+    min-height: 30px;
     background-color: rgba(90, 90, 90, 0.65);
     border-radius: 100%;
-    position: absolute;
     font-size: 3.75em;
+    font-size: clamp(1.725em, 4vw, 3.75em);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     cursor: pointer;
     transition: color 0.4s;
+    flex-shrink: 0;
 }
 
 .service-selector-slide .left-arrow:hover,
@@ -527,6 +559,46 @@ footer {
 
 .service-selector .button:first-of-type {
     margin-right: 20px;
+}
+
+@media screen and (max-width: 1115px) {
+    h1 {
+        font-size: 1.425em;
+    }
+    h2 {
+        font-size: 3em;
+    }
+
+    .service-selector {
+        padding-top: 0;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .service-selector .button:first-of-type {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .service-selector h1 {
+        margin-bottom: 50px;
+    }
+
+    .service-selector .slide-dots {
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .service-selector-slide .item {
+        border-width: 7px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .service-selector .button {
+        width: 100%;
+    }
 }
 
 .about {
