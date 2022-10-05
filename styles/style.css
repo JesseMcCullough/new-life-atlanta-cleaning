@@ -854,3 +854,28 @@ footer .copyright {
     font-size: 0.7em;
     color: #FFFFFF;
 }
+
+@media screen and (max-width: 900px) {
+    footer {
+        height: auto;
+    }
+
+    footer .flex-container {
+        flex-direction: column;
+    }
+
+    footer .logo,
+    footer .services,
+    footer .cta {
+        flex-basis: auto;
+        margin-bottom: 30px;
+    }
+
+    footer .services {
+        text-align: center;
+    }
+
+    footer .cta {
+        width: 100%;
+    }
+}
