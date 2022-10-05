@@ -10,8 +10,12 @@
     <div class="nav">
         <a href="#" class="logo"><img src="images/logo.png" /></a>
         <ul>
+            <li class="schedule"><a href="#">Schedule</a></li>
             <li><a href="#">Tile</a></li>
             <li><a href="#">Carpet</a></li>
+            <li><a href="#">Upholstery</a></li>
+            <li><a href="#">Rug</a></li>
+            <li><a href="#">Hardwood</a></li>
             <li><a href="#">Upholstery</a></li>
             <li><a href="#">Rug</a></li>
             <li><a href="#">Hardwood</a></li>
@@ -23,6 +27,12 @@
             </a>
             <a href="#" class="button">Schedule</a>
         </div>
+        <div class="mobile-menu-icon">
+			<div class="bar"></div>
+			<div class="bar"></div>
+			<div class="bar"></div>
+		</div>
+        <div class="mobile-overlay"></div>
     </div>
     <section class="service-selector">
         <h1>I need to clean my ... </h1>
@@ -130,5 +140,6 @@
             <span class="copyright">Copyright &copy; 2022 XYZ. All rights reserved.</span>
         </div>
     </footer>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
