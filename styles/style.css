@@ -357,13 +357,14 @@ footer {
 
 
 .service-selector {
-    height: max(500px, 100vh);
+    min-height: 100vh;
     position: relative;
     background-image: url("../images/carpet-1.png");
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 0;
     padding-top: 100px; /* To respect absolute nav for DESKTOP, maybe not for mobile */
+    padding-bottom: var(--page-padding);
     color: #FFFFFF;
     text-align: center;
 }
@@ -567,10 +568,6 @@ footer {
     }
     h2 {
         font-size: 3em;
-    }
-
-    .service-selector {
-        padding-top: 0;
     }
 }
 
