@@ -662,9 +662,12 @@ footer {
 }
 
 .reviews {
+    margin-bottom: var(--page-padding);
+}
+
+.reviews .container {
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: var(--page-padding);
 }
 
 .reviews .review {
@@ -679,6 +682,11 @@ footer {
     word-break: break-word;
     height: 100%;
     transition: transform 0.4s;
+    margin-right: 20px;
+}
+
+.reviews .review:last-of-type {
+    margin-right: 0;
 }
 
 .reviews .review span {
@@ -706,6 +714,18 @@ footer {
     transform: scale(1.05);
 }
 
+@media screen and (max-width: 900px) {
+    .reviews .container {
+        flex-direction: column;
+    }
+
+    .reviews .review {
+        margin-right: 0;
+        margin-bottom: 20px;
+        max-width: none;
+    }
+}
+ 
 .cta-full-screen {
     height: 100vh;
     background-color: var(--orange-color);
