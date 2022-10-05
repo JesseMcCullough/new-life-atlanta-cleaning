@@ -71,7 +71,15 @@ footer {
     text-decoration: none;
     color: #FFFFFF;
     font-size: 1.125em;
+    text-align: center;
     transition: color 0.4s, background-color 0.4s, border-color 0.4s, width 0.4s !important;
+}
+
+
+@media screen and (max-width: 500px) {
+    .button {
+        width: 100%;
+    }
 }
 
 .button:hover {
@@ -742,7 +750,7 @@ footer {
 
 .cta-full-screen h2 {
     color: #FFFFFF;
-
+    text-align: center;
 }
 
 .cta-full-screen .button {
@@ -754,6 +762,12 @@ footer {
 .cta-full-screen .button:hover {
     background-color: var(--white-hover-color);
     color: var(--orange-hover-color);
+}
+
+@media screen and (max-width: 850px) {
+    .cta-full-screen h2 {
+        font-size: 2em;
+    }
 }
 
 .or-call {
