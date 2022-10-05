@@ -101,12 +101,34 @@
             <p>Aliquam auctor, est non aliquet sollicitudin, dui odio tristique dui, id pretium ante quam nec massa. Sed gravida ligula at erat vulputate commodo in vitae eros. Vestibulum neque odio, convallis a venenatis quis, fermentum et justo. In nec tortor a orci volutpat lacinia. In iaculis laoreet faucibus. Nulla egestas est ut blandit pharetra. Nunc vitae enim quam. Integer tristique odio eget facilisis laoreet.asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdsadsadsadsadsadsad</p>
         </div>
     </section>
-    <section class="cta">
+    <section class="cta-full-screen">
         <div class="container">
             <h2>Ready to schedule your cleaning?</h2>
             <a href="#" class="button">Schedule cleaning</a>
             <span class="or-call">or Call <span class="phone"><a href="tel:(678)318-1353">(678) 318-1353</a></span></span>
         </div>
     </section>
+    <footer>
+        <div class="container">
+            <div class="flex-container">
+                <div class="logo">
+                    <a href="#"><img src="images/logo.png" /></a>
+                </div>
+                <ul class="services">
+                    <li>Services</li>
+                    <li><a href="#">Tile Cleaning</a></li>
+                    <li><a href="#">Carpet Cleaning</a></li>
+                    <li><a href="#">Upholstery Cleaning</a></li>
+                    <li><a href="#">Rug Cleaning</a></li>
+                    <li><a href="#">Hardwood Cleaning</a></li>
+                </ul>
+                <div class="cta">
+                    <a href="#" class="button">Schedule cleaning</a>
+                    <span class="or-call">or Call <span class="phone"><a href="tel:(678)318-1353">(678) 318-1353</a></span></span>
+                </div>
+            </div>
+            <span class="copyright">Copyright &copy; 2022 XYZ. All rights reserved.</span>
+        </div>
+    </footer>
 </body>
 </html>

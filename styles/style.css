@@ -41,7 +41,8 @@ p:last-child {
     margin-bottom: 0;
 }
 
-section {
+section,
+footer {
     padding-top: var(--page-padding);
     padding-left: var(--page-padding);
     padding-right: var(--page-padding);
@@ -427,13 +428,13 @@ section {
     transform: scale(1.05);
 }
 
-.cta {
+.cta-full-screen {
     height: 100vh;
     background-color: var(--orange-color);
     color: #FFFFFF;
 }
 
-.cta .container {
+.cta-full-screen .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -441,33 +442,103 @@ section {
     height: 100%;
 }
 
-.cta h2 {
+.cta-full-screen h2 {
     color: #FFFFFF;
 
 }
 
-.cta .button {
+.cta-full-screen .button {
     background-color: #FFFFFF;
     color: var(--orange-color);
     margin-bottom: 30px;
 }
 
-.cta .button:hover {
+.cta-full-screen .button:hover {
     background-color: var(--white-hover-color);
     color: var(--orange-hover-color);
 }
 
-.cta .or-call {
+.or-call {
     font-size: 1.125em; /* same as button font size */
+    color: #FFFFFF;
 }
 
-.cta .or-call a {
+.or-call a {
     color: #FFFFFF;
     transition: color 0.4s;
     font-weight: bold;
     text-decoration: none;
 }
 
-.cta .or-call a:hover {
+.or-call a:hover {
     color: var(--white-hover-color);
+}
+
+footer {
+    height: 240px;
+    background-color: #005C75;
+    padding-bottom: var(--page-padding);
+}
+
+footer .flex-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+footer .logo,
+footer .services {
+    flex-basis: 250px;
+}
+
+footer .logo img {
+    width: 160px;
+}
+
+footer .logo img {
+    transition: opacity 0.4s;
+}
+
+footer .logo img:hover {
+    opacity: 0.7;
+}
+
+footer .services {
+    list-style-type: none;
+    color: #FFFFFF;
+}
+
+footer .services li {
+    margin-bottom: 8px;
+}
+
+footer .services li:first-of-type {
+    font-size: 1.125em;
+}
+
+footer .services a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.4s;
+}
+
+footer .services a:hover {
+    color: var(--white-hover-color);
+}
+
+footer .cta {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .cta .button {
+    margin-bottom: 10px;
+}
+
+footer .copyright {
+    font-size: 0.7em;
+    color: #FFFFFF;
 }
