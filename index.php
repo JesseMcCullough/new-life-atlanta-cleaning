@@ -10,8 +10,12 @@
     <div class="nav">
         <a href="#" class="logo"><img src="images/logo.png" /></a>
         <ul>
+            <li class="schedule"><a href="#">Schedule</a></li>
             <li><a href="#">Tile</a></li>
             <li><a href="#">Carpet</a></li>
+            <li><a href="#">Upholstery</a></li>
+            <li><a href="#">Rug</a></li>
+            <li><a href="#">Hardwood</a></li>
             <li><a href="#">Upholstery</a></li>
             <li><a href="#">Rug</a></li>
             <li><a href="#">Hardwood</a></li>
@@ -23,26 +27,36 @@
             </a>
             <a href="#" class="button">Schedule</a>
         </div>
+        <div class="mobile-menu-icon">
+			<div class="bar"></div>
+			<div class="bar"></div>
+			<div class="bar"></div>
+		</div>
+        <div class="mobile-overlay"></div>
     </div>
     <section class="service-selector">
-        <h1>I need to clean my ... </h1>
-        <h2>Carpet</h2>
-        <div class="service-selector-slide">
-            <div class="left-arrow"><span>&lt;</span></div>
-            <div class="item left"></div>
-            <div class="item middle"></div>
-            <div class="item right"></div>
-            <div class="right-arrow"><span>&gt;</span></div>
+        <div class="container">
+            <h1>I need to clean my ... </h1>
+            <h2>Carpet</h2>
+            <div class="service-selector-slide">
+                <div class="left-arrow"><span>&lt;</span></div>
+                <div class="item left"></div>
+                <div class="item middle"></div>
+                <div class="item right"></div>
+                <div class="right-arrow"><span>&gt;</span></div>
+            </div>
+            <div class="slide-dots">
+                <div class="dot"></div>
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="buttons">
+                <a href="#" class="button secondary">Learn about carpet cleaning</a>
+                <a href="#" class="button">Schedule carpet cleaning</a>
+            </div>
         </div>
-        <div class="slide-dots">
-            <div class="dot"></div>
-            <div class="dot active"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-        <a href="#" class="button secondary">Learn about carpet cleaning</a>
-        <a href="#" class="button">Schedule carpet cleaning</a>
     </section>
     <section class="about">
         <div class="container">
@@ -61,44 +75,46 @@
         </div>
     </section>
     <section class="reviews">
-        <div class="review">
-            <img src="images/review-1.png" class="profile" />
-            <span class="name">John D.</span>
-            <span class="location">City, ST</span>
-            <div class="stars">
-                <img src="images/star.png" class="star" />
-                <img src="images/star.png" class="star" />
-                <img src="images/star.png" class="star" />
-                <img src="images/star.png" class="star" />
-                <img src="images/star.png" class="star" />
+        <div class="container">
+            <div class="review">
+                <img src="images/review-1.png" class="profile" />
+                <span class="name">John D.</span>
+                <span class="location">City, ST</span>
+                <div class="stars">
+                    <img src="images/star.png" class="star" />
+                    <img src="images/star.png" class="star" />
+                    <img src="images/star.png" class="star" />
+                    <img src="images/star.png" class="star" />
+                    <img src="images/star.png" class="star" />
+                </div>
+                <p>Aliquam auctor, est non aliquet sollicitudin, dui odio tristique dui, id pretium ante quam nec massa. Sed gravida ligula at erat vulputate commodo in vitae eros. Vestibulum neque odio, convallis a venenatis quis, fermentum et justo. In nec tortor a orci volutpat lacinia. In iaculis laoreet faucibus. Nulla egestas est ut blandit pharetra. Nunc vitae enim quam. Integer tristique odio eget facilisis laoreet.</p>
             </div>
-            <p>Aliquam auctor, est non aliquet sollicitudin, dui odio tristique dui, id pretium ante quam nec massa. Sed gravida ligula at erat vulputate commodo in vitae eros. Vestibulum neque odio, convallis a venenatis quis, fermentum et justo. In nec tortor a orci volutpat lacinia. In iaculis laoreet faucibus. Nulla egestas est ut blandit pharetra. Nunc vitae enim quam. Integer tristique odio eget facilisis laoreet.</p>
-        </div>
-        <div class="review">
-            <img src="images/review-1.png" class="profile" />
-            <span class="name">John D.</span>
-            <span class="location">City, ST</span>
-            <div class="stars">
-                <img src="images/star.png" class="star" />
-                <img src="images/star.png" class="star" />
-                <img src="images/star.png" class="star" />
-                <img src="images/star.png" class="star" />
-                <img src="images/star.png" class="star" />
+            <div class="review">
+                <img src="images/review-1.png" class="profile" />
+                <span class="name">John D.</span>
+                <span class="location">City, ST</span>
+                <div class="stars">
+                    <img src="images/star.png" class="star" />
+                    <img src="images/star.png" class="star" />
+                    <img src="images/star.png" class="star" />
+                    <img src="images/star.png" class="star" />
+                    <img src="images/star.png" class="star" />
+                </div>
+                <p>Aliquam auctor, est non aliquet sollicitudin, dui odio tristique dui, id pretium ante quam nec massa. Sed gravida ligula at erat vulputate commodo in vitae eros. Vestibulum neque odio, convallis a venenatis quis, fermentum et justo. In nec tortor a orci volutpat lacinia. In iaculis laoreet faucibus. Nulla egestas est ut blandit pharetra.</p>
             </div>
-            <p>Aliquam auctor, est non aliquet sollicitudin, dui odio tristique dui, id pretium ante quam nec massa. Sed gravida ligula at erat vulputate commodo in vitae eros. Vestibulum neque odio, convallis a venenatis quis, fermentum et justo. In nec tortor a orci volutpat lacinia. In iaculis laoreet faucibus. Nulla egestas est ut blandit pharetra.</p>
-        </div>
-        <div class="review">
-            <img src="images/review-1.png" class="profile" />
-            <span class="name">John D.</span>
-            <span class="location">City, ST</span>
-            <div class="stars">
-                <img src="images/star.png" class="star" />
-                <img src="images/star.png" class="star" />
-                <img src="images/star.png" class="star" />
-                <img src="images/star.png" class="star" />
-                <img src="images/star.png" class="star" />
+            <div class="review">
+                <img src="images/review-1.png" class="profile" />
+                <span class="name">John D.</span>
+                <span class="location">City, ST</span>
+                <div class="stars">
+                    <img src="images/star.png" class="star" />
+                    <img src="images/star.png" class="star" />
+                    <img src="images/star.png" class="star" />
+                    <img src="images/star.png" class="star" />
+                    <img src="images/star.png" class="star" />
+                </div>
+                <p>Aliquam auctor, est non aliquet sollicitudin, dui odio tristique dui, id pretium ante quam nec massa. Sed gravida ligula at erat vulputate commodo in vitae eros. Vestibulum neque odio, convallis a venenatis quis, fermentum et justo. In nec tortor a orci volutpat lacinia. In iaculis laoreet faucibus. Nulla egestas est ut blandit pharetra. Nunc vitae enim quam. Integer tristique odio eget facilisis laoreet.asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdsadsadsadsadsadsad</p>
             </div>
-            <p>Aliquam auctor, est non aliquet sollicitudin, dui odio tristique dui, id pretium ante quam nec massa. Sed gravida ligula at erat vulputate commodo in vitae eros. Vestibulum neque odio, convallis a venenatis quis, fermentum et justo. In nec tortor a orci volutpat lacinia. In iaculis laoreet faucibus. Nulla egestas est ut blandit pharetra. Nunc vitae enim quam. Integer tristique odio eget facilisis laoreet.asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdsadsadsadsadsadsad</p>
         </div>
     </section>
     <section class="cta-full-screen">
@@ -130,5 +146,6 @@
             <span class="copyright">Copyright &copy; 2022 XYZ. All rights reserved.</span>
         </div>
     </footer>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
