@@ -35,26 +35,56 @@
         <div class="mobile-overlay"></div>
     </div>
     <section class="service-selector">
+        <div class="overlay"></div>
+        <div class="background-img-1"></div>
+        <div class="background-img-2"></div>
         <div class="container">
             <h1>I need to clean my ... </h1>
             <h2>Carpet</h2>
             <div class="service-selector-slide">
                 <div class="left-arrow"><span>&lt;</span></div>
-                <div class="item left"></div>
-                <div class="item middle"></div>
-                <div class="item right"></div>
+                <div class="items">
+                    <div class="item-container left tile" data-id="0" data-title="Tile"
+                            data-button-text="tile cleaning" data-button-href="#tilecleaning"
+                            data-background-image="images/service-selector/vct-1.png"
+                            data-overlay-opacity="0.5">
+                        <div class="item-content"></div>
+                    </div>
+                    <div class="item-container middle carpet" data-id="1" data-title="Carpet"
+                            data-button-text="carpet cleaning" data-button-href="#carpetcleaning"
+                            data-background-image="images/service-selector/carpet-1.png">
+                        <div class="item-content"></div>
+                    </div>
+                    <div class="item-container right upholstery" data-id="2" data-title="Upholstery"
+                            data-button-text="upholstery cleaning" data-button-href="#upholsterycleaning"
+                            data-background-image="images/service-selector/upholstery-1.png"
+                            data-overlay-opacity="0.4">
+                        <div class="item-content"></div>
+                    </div>
+                    <div class="item-container invisible service-4" data-id="3" data-title="Service 4"
+                            data-button-text="service 4 cleaning" data-button-href="#service4cleaning"
+                            data-background-image="images/service-selector/vct-2.png"
+                            data-overlay-opacity="0.8">
+                        <div class="item-content"></div>
+                    </div>
+                    <div class="item-container invisible service-5" data-id="4" data-title="Service 5"
+                            data-button-text="service 5 cleaning" data-button-href="#service5cleaning"
+                            data-background-image="images/service-selector/carpet-2.png">
+                        <div class="item-content"></div>
+                    </div>
+                </div>
                 <div class="right-arrow"><span>&gt;</span></div>
             </div>
             <div class="slide-dots">
-                <div class="dot"></div>
-                <div class="dot active"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
+                <div class="dot" data-id="0"></div>
+                <div class="dot active" data-id="1"></div>
+                <div class="dot" data-id="2"></div>
+                <div class="dot" data-id="3"></div>
+                <div class="dot" data-id="4"></div>
             </div>
             <div class="buttons">
-                <a href="#" class="button secondary">Learn about carpet cleaning</a>
-                <a href="#" class="button">Schedule carpet cleaning</a>
+                <a href="#" class="button secondary">Learn about&nbsp;<span class="service">carpet cleaning</span></a>
+                <a href="#schedule" class="button">Schedule&nbsp;<span class="service"> carpet cleaning</a>
             </div>
         </div>
     </section>
@@ -147,5 +177,6 @@
         </div>
     </footer>
     <script src="scripts/script.js"></script>
+    <script src="scripts/service-selector.js"></script>
 </body>
 </html>
