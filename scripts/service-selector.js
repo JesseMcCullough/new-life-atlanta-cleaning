@@ -93,32 +93,12 @@ function move(times, direction, alternateTimes, alternateDirection, newMiddle) {
     let cycle = 0;
     let maxCycles = alternateTimes < times ? alternateTimes : times;
 
-    document.querySelector(".dot[data-id='" + middle + "']").classList.remove("active");
-    document.querySelector(".dot[data-id='" + newMiddle + "']").classList.add("active");
+    // dot animation
+    applyDotsAnimation(middle, newMiddle);
 
-    let inactiveBackground = 1;
-    activeBackground++;
-    if (activeBackground > 2) {
-        activeBackground = 1;
-        inactiveBackground = 2;
-    }
-
+    // bg animation
     const newMiddleItem = document.querySelector(".service-selector .item-container[data-id='" + newMiddle + "']");
     imgSrc = newMiddleItem.dataset.backgroundImage;
-
-    const activeBackgroundImg = document.querySelector(".service-selector .background-img-" + activeBackground);
-    activeBackgroundImg.style.backgroundImage = "url('" + imgSrc + "')";
-    activeBackgroundImg.style.transitionDuration = "0s";
-    activeBackgroundImg.style.opacity = "1";
-
-    const inactiveBackgroundImg = document.querySelector(".service-selector .background-img-" + inactiveBackground);
-    inactiveBackgroundImg.style.opacity = "0";
-
-    setTimeout(function() {
-        activeBackgroundImg.style.transitionDuration = "0.4s";
-        activeBackgroundImg.style.zIndex = "1";
-        inactiveBackgroundImg.style.zIndex = "0";    
-    }, 0.4 * 1000);
 
     let overlayOpacity = null;
     if (newMiddleItem.hasAttribute("data-overlay-opacity")) {
@@ -130,17 +110,8 @@ function move(times, direction, alternateTimes, alternateDirection, newMiddle) {
         overlayColor = newMiddleItem.dataset.overlayColor;
     }
 
-    document.querySelector(".service-selector .overlay").style.opacity = overlayOpacity;
-    document.querySelector(".service-selector .overlay").style.backgroundColor = overlayColor;
-
-    const title = document.querySelector(".service-selector h2");
-    title.innerHTML = newMiddleItem.dataset.title;
-
-    const buttons = document.querySelectorAll(".service-selector .button");
-    for (let button of buttons) {
-        button.querySelector("span").innerHTML = newMiddleItem.dataset.buttonText;
-    }
-    document.querySelector(".service-selector .button.secondary").href = newMiddleItem.dataset.buttonHref;
+    applyBackgroundAnimation(imgSrc, overlayOpacity, overlayColor);
+    applyTextChange(newMiddleItem.dataset.title, newMiddleItem.dataset.buttonText, newMiddleItem.dataset.buttonHref);
 
     let interval = setInterval(function() {
         if (alternateTimes < times) {
@@ -225,7 +196,7 @@ function backward(doDotsScrollAnimation = true, doBackgroundAnimation = true, do
     }
 }
 
-function moveItems(isForward, previousLeft, previousRight, previousMiddle, doDotsScrollAnimation = true, doBackgroundAnimation = true, doTextChange = true) {
+function moveItems(isForward, previousLeft, previousRight, previousMiddle, doDotsAnimation = true, doBackgroundAnimation = true, doTextChange = true) {
     while (invisibleTimeouts.length != 0) {
         let timeout = invisibleTimeouts.shift();
         clearTimeout(timeout);
@@ -323,46 +294,57 @@ function moveItems(isForward, previousLeft, previousRight, previousMiddle, doDot
         }
     }
 
-    if (doDotsScrollAnimation) {
-        document.querySelector(".dot[data-id='" + previousMiddle + "']").classList.remove("active");
-        document.querySelector(".dot[data-id='" + middle + "']").classList.add("active");
+    if (doDotsAnimation) {
+        applyDotsAnimation(previousMiddle, middle);
     }
 
     if (doBackgroundAnimation) {
-        let inactiveBackground = 1;
-        activeBackground++;
-        if (activeBackground > 2) {
-            activeBackground = 1;
-            inactiveBackground = 2;
-        }
-
-        const activeBackgroundImg = document.querySelector(".service-selector .background-img-" + activeBackground);
-        activeBackgroundImg.style.backgroundImage = "url('" + imgSrc + "')";
-        activeBackgroundImg.style.transitionDuration = "0s";
-        activeBackgroundImg.style.opacity = "1";
-
-        const inactiveBackgroundImg = document.querySelector(".service-selector .background-img-" + inactiveBackground);
-        inactiveBackgroundImg.style.opacity = "0";
-
-        setTimeout(function() {
-            activeBackgroundImg.style.transitionDuration = "0.4s";
-            activeBackgroundImg.style.zIndex = "1";
-            inactiveBackgroundImg.style.zIndex = "0";
-        
-        }, 0.4 * 1000);
-
-        document.querySelector(".service-selector .overlay").style.opacity = overlayOpacity;
-        document.querySelector(".service-selector .overlay").style.backgroundColor = overlayColor;
+        applyBackgroundAnimation(imgSrc, overlayOpacity, overlayColor);
     }
 
     if (doTextChange) {
-        const title = document.querySelector(".service-selector h2");
-        title.innerHTML = titleText;
-
-        const buttons = document.querySelectorAll(".service-selector .button");
-        for (let button of buttons) {
-            button.querySelector("span").innerHTML = buttonText;
-        }
-        document.querySelector(".service-selector .button.secondary").href = buttonHref;
+        applyTextChange(titleText, buttonText, buttonHref);
     }
+}
+
+function applyDotsAnimation(oldMiddle, newMiddle) {
+    document.querySelector(".dot[data-id='" + oldMiddle + "']").classList.remove("active");
+    document.querySelector(".dot[data-id='" + newMiddle + "']").classList.add("active");
+}
+
+function applyBackgroundAnimation(newImageSrc, overlayOpacity, overlayColor) {
+    let inactiveBackground = 1;
+    activeBackground++;
+    if (activeBackground > 2) {
+        activeBackground = 1;
+        inactiveBackground = 2;
+    }
+
+    const activeBackgroundImg = document.querySelector(".service-selector .background-img-" + activeBackground);
+    activeBackgroundImg.style.backgroundImage = "url('" + newImageSrc + "')";
+    activeBackgroundImg.style.transitionDuration = "0s";
+    activeBackgroundImg.style.opacity = "1";
+
+    const inactiveBackgroundImg = document.querySelector(".service-selector .background-img-" + inactiveBackground);
+    inactiveBackgroundImg.style.opacity = "0";
+
+    setTimeout(function() {
+        activeBackgroundImg.style.transitionDuration = "0.4s";
+        activeBackgroundImg.style.zIndex = "1";
+        inactiveBackgroundImg.style.zIndex = "0";
+    }, 0.4 * 1000);
+
+    document.querySelector(".service-selector .overlay").style.opacity = overlayOpacity;
+    document.querySelector(".service-selector .overlay").style.backgroundColor = overlayColor;
+}
+
+function applyTextChange(newTitle, newButtonText, newButtonHref) {
+    const title = document.querySelector(".service-selector h2");
+    title.innerHTML = newTitle;
+
+    const buttons = document.querySelectorAll(".service-selector .button");
+    for (let button of buttons) {
+        button.querySelector("span").innerHTML = newButtonText;
+    }
+    document.querySelector(".service-selector .button.secondary").href = newButtonHref;
 }
