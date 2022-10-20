@@ -241,8 +241,10 @@ function moveItems(isForward, previousLeft, previousRight, previousMiddle, doDot
     const items = document.querySelectorAll(".item-container");
     for (let x = 0; x < items.length; x++) {
         let item = items[x];
+        newItem = isForward ? next : previous;
 
-        if (x == next) {
+        // now when the last item is on the right and we go backwards then forwards again, the last item is lost.
+        if (x == newItem) {
             item.style.transitionDuration = "0s";
 
             if (isForward) {
@@ -252,7 +254,7 @@ function moveItems(isForward, previousLeft, previousRight, previousMiddle, doDot
                 if (leftOffscreenBoxOffset > leftOffScreenBoxOffsetUpperLimit) {
                     leftOffscreenBoxOffset = leftOffScreenBoxOffsetLowerLimit;
                 }
-            } else { // Losing last item for some reason.
+            } else {
                 console.log("backwards");
                 item.style.right = leftOffscreenBoxOffset + "%";
 
@@ -266,10 +268,10 @@ function moveItems(isForward, previousLeft, previousRight, previousMiddle, doDot
 
             setTimeout(function() {
                 item.style.transitionDuration = "0.4s";
-                item.style.right = item.style.right = Number(item.style.right.slice(0, item.style.right.length - 1)) + moveItemsBy + "%";
+                item.style.right = item.style.right = (Number(item.style.right.slice(0, item.style.right.length - 1)) + moveItemsBy) + "%";
             }, 1);
         } else {
-            item.style.right = Number(item.style.right.slice(0, item.style.right.length - 1)) + moveItemsBy + "%";
+            item.style.right = (Number(item.style.right.slice(0, item.style.right.length - 1)) + moveItemsBy) + "%";
         }
 
         if (x == previousLeft) {
