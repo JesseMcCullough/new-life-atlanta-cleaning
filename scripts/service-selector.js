@@ -242,29 +242,31 @@ function moveItems(isForward, previousLeft, previousRight, previousMiddle, doDot
     for (let x = 0; x < items.length; x++) {
         let item = items[x];
         newItem = isForward ? next : previous;
-
-        // now when the last item is on the right and we go backwards then forwards again, the last item is lost.
         if (x == newItem) {
             item.style.transitionDuration = "0s";
+            /* 
+             * Must be in the following order: 
+             * Move item (item.style.right)
+             * Change offset
+             * Check offset
+             */
 
             if (isForward) {
-                console.log("forward!");
                 item.style.right = rightOffscreenBoxOffset + "%";
-
-                if (leftOffscreenBoxOffset > leftOffScreenBoxOffsetUpperLimit) {
-                    leftOffscreenBoxOffset = leftOffScreenBoxOffsetLowerLimit;
-                }
             } else {
-                console.log("backwards");
                 item.style.right = leftOffscreenBoxOffset + "%";
-
-                if (rightOffscreenBoxOffset < rightOffScreenBoxLowerLimit) {
-                    rightOffscreenBoxOffset = rightOffScreenBoxUpperLimit;
-                }
+            }
+            
+            leftOffscreenBoxOffset = roundToOneDecimal(leftOffscreenBoxOffset + moveItemsBy);
+            if (leftOffscreenBoxOffset > leftOffScreenBoxOffsetUpperLimit) {
+                leftOffscreenBoxOffset = leftOffScreenBoxOffsetLowerLimit;
             }
 
-            leftOffscreenBoxOffset = roundToOneDecimal(leftOffscreenBoxOffset + moveItemsBy);
             rightOffscreenBoxOffset = roundToOneDecimal(rightOffscreenBoxOffset + moveItemsBy);
+            if (rightOffscreenBoxOffset < rightOffScreenBoxLowerLimit) {
+                console.log("Reset here");
+                rightOffscreenBoxOffset = rightOffScreenBoxUpperLimit;
+            }
 
             setTimeout(function() {
                 item.style.transitionDuration = "0.4s";
@@ -327,16 +329,11 @@ function moveItems(isForward, previousLeft, previousRight, previousMiddle, doDot
     }
 
     if (doBackgroundAnimation) {
-        // active: 1, inactive, 2
         let inactiveBackground = 1;
         activeBackground++;
-
-        // active, 2, inactive 1,
-
         if (activeBackground > 2) {
             activeBackground = 1;
             inactiveBackground = 2;
-            // active 1, inactive 2
         }
 
         const activeBackgroundImg = document.querySelector(".service-selector .background-img-" + activeBackground);
@@ -356,7 +353,6 @@ function moveItems(isForward, previousLeft, previousRight, previousMiddle, doDot
 
         document.querySelector(".service-selector .overlay").style.opacity = overlayOpacity;
         document.querySelector(".service-selector .overlay").style.backgroundColor = overlayColor;
-        console.log("Set to " + overlayColor);
     }
 
     if (doTextChange) {
