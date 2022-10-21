@@ -456,6 +456,7 @@ footer {
     align-items: center;
     justify-content: center;
     height: 28vw;
+    transition: height 0.4s; /* so the items do not get clipped during their 0.4s resizing transition. */
 }
 
 .service-selector .service-selector-slide .items {
