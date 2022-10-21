@@ -1,4 +1,4 @@
-const moveBy = 33.3; // Value to move items by, expressed as a percentage. Surprisingly, not responsive on all screens.
+const moveBy = 33.3; // Value to move items by, expressed as a percentage.
 let maxItems = document.querySelectorAll(".item-content").length;
 let left = 0;
 let middle = 1; // (Item 1, |Item 2|, Item 3)
@@ -7,7 +7,6 @@ let next = 3; // (Item 1, Item 2, Item 3) |Item 4|
 let previous = maxItems - 1; // |Item 5| (Item 1, Item 2, Item 3)
 let activeBackground = 1;
 const invisibleTimeouts = [];
-//let stateNum = 1;
 /*
  * At start going forwards, the fourth (next) item needs to move to the right offscreen box, which it's already there.
  * Range: [-moveBy * 3, moveBy * (maxItems - 4)]
@@ -35,19 +34,31 @@ leftArrow.addEventListener("click", function() {
     backward();
 });
 
-let interval = setInterval(forward, 5 * 1000);
+let slideItems = setInterval(forward, 5 * 1000);
 
+/**
+ * Stops the slideItems interval, stopping the items from sliding automatically.
+ */
 function stopSlidingItems() {
-    if (interval) {
-        clearInterval(interval);
-        interval = null;
+    if (slideItems) {
+        clearInterval(slideItems);
+        slideItems = null;
     }
 }
 
+/**
+ * Rounds a number to one decimal place.
+ * 
+ * @param {number} number Number to be rounded to one decimal place.
+ * @return {number} Number rounded to one decimal place.
+ */
 function roundToOneDecimal(number) {
     return Math.round(number * 10) / 10;
 }
 
+/**
+ * Adds an onClick event to each item for moving the items forward and backward. 
+ */
 let itemsContent = document.querySelectorAll(".item-container .item-content");
 for (let itemContent of itemsContent) {
     itemContent.addEventListener("click", function() {
@@ -69,7 +80,9 @@ for (let itemContent of itemsContent) {
     });
 }
 
-// Investigate why the animation is sometimes off on large jumps.
+/**
+ * Adds an onClick event to each item's corresponding dot for moving the items forward and backward. 
+ */
 let dots = document.querySelectorAll(".dot");
 for (let dot of dots) {
     dot.addEventListener("click", function() {
@@ -81,8 +94,7 @@ for (let dot of dots) {
             return;
         }
 
-        // Forward
-        if (id > middle) {
+        if (id > middle) { // Forward
             move(id - middle, forward, maxItems - id + middle, backward, id);
         } else if (id < middle) { // Backward
             move(middle - id, backward, maxItems - (middle - id), forward, id);
@@ -90,43 +102,29 @@ for (let dot of dots) {
     });
 }
 
+/**
+ * Moves the items an amount of times in a direction. If there is a lesser amount of times
+ * available to move in the opposite direction while still arriving at the same new middle item,
+ * it will take that path instead. All animations will occur.
+ * 
+ * @param {number} times Amount of times to move the items.
+ * @param direction Direction to move the items by method call (forward or backward).
+ * @param {number} alternateTimes Alternate amount of times to move the items.
+ * @param alternateDirection Altenate direction to move the items by method call (forward or backward).
+ * @param {number} newMiddle The new middle item by id.
+ */
 function move(times, direction, alternateTimes, alternateDirection, newMiddle) {
     times = Math.abs(times);
     alternateTimes = Math.abs(alternateTimes);
     let cycle = 0;
     let maxCycles = alternateTimes < times ? alternateTimes : times;
 
-    document.querySelector(".dot[data-id='" + middle + "']").classList.remove("active");
-    document.querySelector(".dot[data-id='" + newMiddle + "']").classList.add("active");
+    // dot animation
+    applyDotsAnimation(middle, newMiddle);
 
-    // active: 1, inactive, 2
-    let inactiveBackground = 1;
-    activeBackground++;
-
-    // active, 2, inactive 1,
-
-    if (activeBackground > 2) {
-        activeBackground = 1;
-        inactiveBackground = 2;
-        // active 1, inactive 2
-    }
-
+    // bg animation
     const newMiddleItem = document.querySelector(".service-selector .item-container[data-id='" + newMiddle + "']");
     imgSrc = newMiddleItem.dataset.backgroundImage;
-
-    const activeBackgroundImg = document.querySelector(".service-selector .background-img-" + activeBackground);
-    activeBackgroundImg.style.backgroundImage = "url('" + imgSrc + "')";
-    activeBackgroundImg.style.transitionDuration = "0s";
-    activeBackgroundImg.style.opacity = "1";
-
-    const inactiveBackgroundImg = document.querySelector(".service-selector .background-img-" + inactiveBackground);
-    inactiveBackgroundImg.style.opacity = "0";
-
-    setTimeout(function() {
-        activeBackgroundImg.style.transitionDuration = "0.4s";
-        activeBackgroundImg.style.zIndex = "1";
-        inactiveBackgroundImg.style.zIndex = "0";    
-    }, 0.4 * 1000);
 
     let overlayOpacity = null;
     if (newMiddleItem.hasAttribute("data-overlay-opacity")) {
@@ -138,17 +136,8 @@ function move(times, direction, alternateTimes, alternateDirection, newMiddle) {
         overlayColor = newMiddleItem.dataset.overlayColor;
     }
 
-    document.querySelector(".service-selector .overlay").style.opacity = overlayOpacity;
-    document.querySelector(".service-selector .overlay").style.backgroundColor = overlayColor;
-
-    const title = document.querySelector(".service-selector h2");
-    title.innerHTML = newMiddleItem.dataset.title;
-
-    const buttons = document.querySelectorAll(".service-selector .button");
-    for (let button of buttons) {
-        button.querySelector("span").innerHTML = newMiddleItem.dataset.buttonText;
-    }
-    document.querySelector(".service-selector .button.secondary").href = newMiddleItem.dataset.buttonHref;
+    applyBackgroundAnimation(imgSrc, overlayOpacity, overlayColor);
+    applyTextChange(newMiddleItem.dataset.title, newMiddleItem.dataset.buttonText, newMiddleItem.dataset.buttonHref);
 
     let interval = setInterval(function() {
         if (alternateTimes < times) {
@@ -165,14 +154,14 @@ function move(times, direction, alternateTimes, alternateDirection, newMiddle) {
     }, 0.1 * 1000);
 }
 
-function forward(doDotsScrollAnimation = true, doBackgroundAnimation = true, doTextChange = true) {
-    while (invisibleTimeouts.length != 0) {
-        let timeout = invisibleTimeouts.shift();
-        clearTimeout(timeout);
-        console.log("Clearing timeout " + timeout);
-    }
-
-    let titleText, buttonText, imgSrc, overlayOpacity = null, overlayColor = null;
+/**
+ * Moves the items forward by one.
+ * 
+ * @param {boolean} doDotsAnimation true to do the dots animation, otherwise false.
+ * @param {boolean} doBackgroundAnimation true to do the background animation, otherwise false.
+ * @param {boolean} doTextChange true to do the text change (title, buttons), otherwise false.
+ */
+function forward(doDotsAnimation = true, doBackgroundAnimation = true, doTextChange = true) {
     let previousLeft = left;
     let previousRight = right;
     let previousMiddle = middle;
@@ -192,167 +181,28 @@ function forward(doDotsScrollAnimation = true, doBackgroundAnimation = true, doT
         middle = 0;
     }
 
-    // let currentState = stateNum++;
-    // let state = "Left: " + (left + 1) + " | Middle: " + (middle + 1) + " | Right: " + (right + 1);
-    // console.log("State: " + currentState + " " + state);
-    const items = document.querySelectorAll(".item-container");
-    for (let x = 0; x < items.length; x++) {
-        let item = items[x];
-
-        if (x == next) {
-            item.style.transitionDuration = "0s";
-            item.style.right = rightOffscreenBoxOffset + "%";
-
-            rightOffscreenBoxOffset = roundToOneDecimal(rightOffscreenBoxOffset + moveBy);
-            leftOffscreenBoxOffset = roundToOneDecimal(leftOffscreenBoxOffset + moveBy);
-            
-            if (leftOffscreenBoxOffset > leftOffScreenBoxOffsetUpperLimit) {
-                leftOffscreenBoxOffset = leftOffScreenBoxOffsetLowerLimit;
-            }
-
-            setTimeout(function() {
-                item.style.transitionDuration = "0.4s";
-                item.style.right = item.style.right = Number(item.style.right.slice(0, item.style.right.length - 1)) + moveBy + "%";
-            }, 1);
-        } else {
-            item.style.right = Number(item.style.right.slice(0, item.style.right.length - 1)) + moveBy + "%";
-        }
-
-        if (x == previousLeft) {
-            item.classList.remove("left");
-        }
-
-        if (x == previousRight) {
-            item.classList.remove("right");
-        }
-
-        let content = item.querySelector(".item-content");
-        //Set old middle to smaller size.
-        if (x == previousMiddle) {
-            item.classList.remove("middle");
-            // content.style.width = "50%";
-            // content.style.height = "50%";
-        }
-
-        if (x == left) {
-            item.classList.add("left");
-        }
-
-        if (x == right) {
-            item.classList.add("right");
-        }
-
-        // Set new middle to bigger size
-        if (x == middle) {
-            item.classList.add("middle");
-            titleText = item.dataset.title;
-            buttonText = item.dataset.buttonText;
-            buttonHref = item.dataset.buttonHref;
-            imgSrc = item.dataset.backgroundImage;
-
-            if (item.hasAttribute("data-overlay-opacity")) {
-                overlayOpacity = item.dataset.overlayOpacity;
-            }
-
-            if (item.hasAttribute("data-overlay-color")) {
-                overlayColor = item.dataset.overlayColor;
-            }
-
-            // console.log("imgSrc: " + imgSrc);
-            // content.style.width = "80%";
-            // content.style.height = "80%";
-        }
-
-        if (x == left || x == right || x == middle) {
-            //console.log("In Loop (State " + currentState + "): Left: " + (left + 1) + " | Middle: " + (middle + 1) + " | Right: " + (right + 1));
-            item.classList.remove("invisible");
-        } else {
-            invisibleTimeouts.push(setTimeout(function() {
-                //console.log("Running invisble (State " + currentState + ")");
-                item.classList.add("invisible");
-                invisibleTimeouts.shift();
-            }, 0.4 * 1000));
-        }
-    }
+    moveItems(true, previousLeft, previousRight, previousMiddle, doDotsAnimation, doBackgroundAnimation, doTextChange);
 
     next++;
-    previous++;
-
-    // console.log("AFTER CHECK");
-    // console.log("left: " + left + " (item " + (left + 1) + ")");
-    // console.log("right: " + right + " (item " + (right + 1) + ")");
-
     if (next == maxItems) {
         next = 0;
         rightOffscreenBoxOffset = rightOffScreenBoxLowerLimit;
     }
 
+    previous++;
     if (previous == maxItems) {
         previous = 0;
     }
-
-    if (doDotsScrollAnimation) {
-        document.querySelector(".dot[data-id='" + previousMiddle + "']").classList.remove("active");
-        document.querySelector(".dot[data-id='" + middle + "']").classList.add("active");
-    }
-
-    if (doBackgroundAnimation) {
-        // active: 1, inactive, 2
-        let inactiveBackground = 1;
-        activeBackground++;
-
-        // active, 2, inactive 1,
-
-        if (activeBackground > 2) {
-            activeBackground = 1;
-            inactiveBackground = 2;
-            // active 1, inactive 2
-        }
-
-        const activeBackgroundImg = document.querySelector(".service-selector .background-img-" + activeBackground);
-        activeBackgroundImg.style.backgroundImage = "url('" + imgSrc + "')";
-        activeBackgroundImg.style.transitionDuration = "0s";
-        activeBackgroundImg.style.opacity = "1";
-
-        const inactiveBackgroundImg = document.querySelector(".service-selector .background-img-" + inactiveBackground);
-        inactiveBackgroundImg.style.opacity = "0";
-
-        setTimeout(function() {
-            activeBackgroundImg.style.transitionDuration = "0.4s";
-            activeBackgroundImg.style.zIndex = "1";
-            inactiveBackgroundImg.style.zIndex = "0";
-            // console.log("Active: ");
-            // console.log(activeBackgroundImg);
-            // console.log("Inactive:");
-            // console.log(inactiveBackgroundImg);
-        
-        }, 0.4 * 1000);
-
-        document.querySelector(".service-selector .overlay").style.opacity = overlayOpacity;
-        document.querySelector(".service-selector .overlay").style.backgroundColor = overlayColor;
-        console.log("Set to " + overlayColor);
-    }
-
-    if (doTextChange) {
-        const title = document.querySelector(".service-selector h2");
-        title.innerHTML = titleText;
-
-        const buttons = document.querySelectorAll(".service-selector .button");
-        for (let button of buttons) {
-            button.querySelector("span").innerHTML = buttonText;
-        }
-        document.querySelector(".service-selector .button.secondary").href = buttonHref;
-    }
 }
 
-function backward(doDotsScrollAnimation = true, doBackgroundAnimation = true, doTextChange = true) {
-    while (invisibleTimeouts.length != 0) {
-        let timeout = invisibleTimeouts.shift();
-        clearTimeout(timeout);
-        console.log("Clearing timeout " + timeout);
-    }
-
-    let titleText, buttonText, imgSrc, overlayOpacity = null, overlayColor = null;
+/**
+ * Moves the items backward by one.
+ * 
+ * @param {boolean} doDotsAnimation true to do the dots animation, otherwise false.
+ * @param {boolean} doBackgroundAnimation true to do the background animation, otherwise false.
+ * @param {boolean} doTextChange true to do the text change (title, buttons), otherwise false.
+ */
+function backward(doDotsAnimation = true, doBackgroundAnimation = true, doTextChange = true) {
     let previousLeft = left;
     let previousRight = right;
     let previousMiddle = middle;
@@ -372,27 +222,81 @@ function backward(doDotsScrollAnimation = true, doBackgroundAnimation = true, do
         middle = maxItems - 1;
     }
 
+    moveItems(false, previousLeft, previousRight, previousMiddle, doDotsAnimation, doBackgroundAnimation, doTextChange);
+
+    next--;
+    if (next == -1) {
+        next = maxItems - 1;
+    }
+
+    previous--;
+    if (previous == -1) {
+        previous = maxItems - 1;
+        leftOffscreenBoxOffset = leftOffScreenBoxOffsetUpperLimit; // Upper cause it's backwards.
+    }
+}
+
+/**
+ * Moves the items either forward or backward by one. This is a helper method for forward and backward,
+ * since they share the same logic but only differ in a positive/negative way.
+ * 
+ * @param {boolean} isForward true to move forward, otherwise false to move backward.
+ * @param {number} previousLeft Previous left item by id. Before this method fully executes, this is the current left item.
+ * @param {number} previousRight The previous right item by id. Before this method fully executes, this is the current right item.
+ * @param {number} previousMiddle The previous middle item by id. Before this method fully executes, this is the current middle item.
+ * @param {boolean} doDotsAnimation true to do the dots animation, otherwise false.
+ * @param {boolean} doBackgroundAnimation true to do the background animation, otherwise false.
+ * @param {boolean} doTextChange true to do the text change (title, buttons), otherwise false.
+ */
+function moveItems(isForward, previousLeft, previousRight, previousMiddle, doDotsAnimation = true, doBackgroundAnimation = true, doTextChange = true) {
+    while (invisibleTimeouts.length != 0) {
+        let timeout = invisibleTimeouts.shift();
+        clearTimeout(timeout);
+    }
+
+    let titleText, buttonText, imgSrc, overlayOpacity = null, overlayColor = null;
+
+    let moveItemsBy = moveBy;
+    if (!isForward) {
+        moveItemsBy = -moveBy;
+    }
+
     const items = document.querySelectorAll(".item-container");
     for (let x = 0; x < items.length; x++) {
         let item = items[x];
-
-        if (x == previous) {
+        newItem = isForward ? next : previous;
+        if (x == newItem) {
             item.style.transitionDuration = "0s";
-            item.style.right = leftOffscreenBoxOffset + "%";
+            /* 
+             * Must be in the following order: 
+             * Move item (item.style.right)
+             * Change offset
+             * Check offset
+             */
 
-            leftOffscreenBoxOffset = roundToOneDecimal(leftOffscreenBoxOffset - moveBy);
-            rightOffscreenBoxOffset = roundToOneDecimal(rightOffscreenBoxOffset - moveBy);
+            if (isForward) {
+                item.style.right = rightOffscreenBoxOffset + "%";
+            } else {
+                item.style.right = leftOffscreenBoxOffset + "%";
+            }
+            
+            leftOffscreenBoxOffset = roundToOneDecimal(leftOffscreenBoxOffset + moveItemsBy);
+            if (leftOffscreenBoxOffset > leftOffScreenBoxOffsetUpperLimit) {
+                leftOffscreenBoxOffset = leftOffScreenBoxOffsetLowerLimit;
+            }
 
+            rightOffscreenBoxOffset = roundToOneDecimal(rightOffscreenBoxOffset + moveItemsBy);
             if (rightOffscreenBoxOffset < rightOffScreenBoxLowerLimit) {
+                console.log("Reset here");
                 rightOffscreenBoxOffset = rightOffScreenBoxUpperLimit;
             }
 
             setTimeout(function() {
                 item.style.transitionDuration = "0.4s";
-                item.style.right = item.style.right = Number(item.style.right.slice(0, item.style.right.length - 1)) - moveBy + "%";
+                item.style.right = item.style.right = (Number(item.style.right.slice(0, item.style.right.length - 1)) + moveItemsBy) + "%";
             }, 1);
         } else {
-            item.style.right = Number(item.style.right.slice(0, item.style.right.length - 1)) - moveBy + "%";
+            item.style.right = (Number(item.style.right.slice(0, item.style.right.length - 1)) + moveItemsBy) + "%";
         }
 
         if (x == previousLeft) {
@@ -403,12 +307,8 @@ function backward(doDotsScrollAnimation = true, doBackgroundAnimation = true, do
             item.classList.remove("right");
         }
 
-        let content = item.querySelector(".item-content");
-        //Set old middle to smaller size.
         if (x == previousMiddle) {
             item.classList.remove("middle");
-            // content.style.width = "50%";
-            // content.style.height = "50%";
         }
 
         if (x == left) {
@@ -419,16 +319,13 @@ function backward(doDotsScrollAnimation = true, doBackgroundAnimation = true, do
             item.classList.add("right");
         }
 
-        // Set new middle to bigger size
         if (x == middle) {
             item.classList.add("middle");
+
             titleText = item.dataset.title;
             buttonText = item.dataset.buttonText;
             buttonHref = item.dataset.buttonHref;
             imgSrc = item.dataset.backgroundImage;
-            //console.log("imgSrc: " + imgSrc);
-            // content.style.width = "80%";
-            // content.style.height = "80%";
 
             if (item.hasAttribute("data-overlay-opacity")) {
                 overlayOpacity = item.dataset.overlayOpacity;
@@ -443,74 +340,83 @@ function backward(doDotsScrollAnimation = true, doBackgroundAnimation = true, do
             item.classList.remove("invisible");
         } else {
             invisibleTimeouts.push(setTimeout(function() {
-                //console.log("Running invisble (State " + currentState + ")");
                 item.classList.add("invisible");
                 invisibleTimeouts.shift();
             }, 0.4 * 1000));
         }
     }
 
-    next--;
-    previous--;
-
-    if (next == -1) {
-        next = maxItems - 1;
-    }
-
-    if (previous == -1) {
-        previous = maxItems - 1;
-        leftOffscreenBoxOffset = leftOffScreenBoxOffsetUpperLimit; // Upper cause it's backwards.
-    }
-
-    if (doDotsScrollAnimation) {
-        document.querySelector(".dot[data-id='" + previousMiddle + "']").classList.remove("active");
-        document.querySelector(".dot[data-id='" + middle + "']").classList.add("active");
+    if (doDotsAnimation) {
+        applyDotsAnimation(previousMiddle, middle);
     }
 
     if (doBackgroundAnimation) {
-        // active: 1, inactive, 2
-        let inactiveBackground = 1;
-        activeBackground++;
-
-        // active, 2, inactive 1,
-
-        if (activeBackground > 2) {
-            activeBackground = 1;
-            inactiveBackground = 2;
-            // active 1, inactive 2
-        }
-
-        const activeBackgroundImg = document.querySelector(".service-selector .background-img-" + activeBackground);
-        activeBackgroundImg.style.backgroundImage = "url('" + imgSrc + "')";
-        activeBackgroundImg.style.transitionDuration = "0s";
-        activeBackgroundImg.style.opacity = "1";
-
-        const inactiveBackgroundImg = document.querySelector(".service-selector .background-img-" + inactiveBackground);
-        inactiveBackgroundImg.style.opacity = "0";
-
-        setTimeout(function() {
-            activeBackgroundImg.style.transitionDuration = "0.4s";
-            activeBackgroundImg.style.zIndex = "1";
-            inactiveBackgroundImg.style.zIndex = "0";
-            console.log("Active: ");
-            console.log(activeBackgroundImg);
-            console.log("Inactive:");
-            console.log(inactiveBackgroundImg);
-        
-        }, 0.4 * 1000);
-
-        document.querySelector(".service-selector .overlay").style.opacity = overlayOpacity;
-        document.querySelector(".service-selector .overlay").style.backgroundColor = overlayColor;
+        applyBackgroundAnimation(imgSrc, overlayOpacity, overlayColor);
     }
 
     if (doTextChange) {
-        const title = document.querySelector(".service-selector h2");
-        title.innerHTML = titleText;
-
-        const buttons = document.querySelectorAll(".service-selector .button");
-        for (let button of buttons) {
-            button.querySelector("span").innerHTML = buttonText;
-        }
-        document.querySelector(".service-selector .button.secondary").href = buttonHref;
+        applyTextChange(titleText, buttonText, buttonHref);
     }
+}
+
+/**
+ * Applies the dot animation.
+ * 
+ * @param {oldMiddle} oldMiddle Old middle item by id.
+ * @param {newMiddle} newMiddle New middle item by id.
+ */
+function applyDotsAnimation(oldMiddle, newMiddle) {
+    document.querySelector(".dot[data-id='" + oldMiddle + "']").classList.remove("active");
+    document.querySelector(".dot[data-id='" + newMiddle + "']").classList.add("active");
+}
+
+/**
+ * Applies the background animation.
+ * 
+ * @param {string} newImageSrc New background image source.
+ * @param {string} overlayOpacity Overlay opacity.
+ * @param {string} overlayColor Overlay color.
+ */
+function applyBackgroundAnimation(newImageSrc, overlayOpacity, overlayColor) {
+    let inactiveBackground = 1;
+    activeBackground++;
+    if (activeBackground > 2) {
+        activeBackground = 1;
+        inactiveBackground = 2;
+    }
+
+    const activeBackgroundImg = document.querySelector(".service-selector .background-img-" + activeBackground);
+    activeBackgroundImg.style.backgroundImage = "url('" + newImageSrc + "')";
+    activeBackgroundImg.style.transitionDuration = "0s";
+    activeBackgroundImg.style.opacity = "1";
+
+    const inactiveBackgroundImg = document.querySelector(".service-selector .background-img-" + inactiveBackground);
+    inactiveBackgroundImg.style.opacity = "0";
+
+    setTimeout(function() {
+        activeBackgroundImg.style.transitionDuration = "0.4s";
+        activeBackgroundImg.style.zIndex = "1";
+        inactiveBackgroundImg.style.zIndex = "0";
+    }, 0.4 * 1000);
+
+    document.querySelector(".service-selector .overlay").style.opacity = overlayOpacity;
+    document.querySelector(".service-selector .overlay").style.backgroundColor = overlayColor;
+}
+
+/**
+ * Applies the text change for the title and the buttons.
+ *  
+ * @param {string} newTitle New title.
+ * @param {string} newButtonText New button text (secondary button, not schedule button).
+ * @param {string} newButtonHref New button href (secondary button, not schedule button).
+ */
+function applyTextChange(newTitle, newButtonText, newButtonHref) {
+    const title = document.querySelector(".service-selector h2");
+    title.innerHTML = newTitle;
+
+    const buttons = document.querySelectorAll(".service-selector .button");
+    for (let button of buttons) {
+        button.querySelector("span").innerHTML = newButtonText;
+    }
+    document.querySelector(".service-selector .button.secondary").href = newButtonHref;
 }
