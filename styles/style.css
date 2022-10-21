@@ -389,6 +389,21 @@ footer {
     align-items: center;
 }
 
+.service-selector h1 {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+.service-selector h2 {
+    text-align: center;
+    margin-bottom: 0;
+    font-weight: bold;
+    color: #FFFFFF;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
 .service-selector .background-img-1,
 .service-selector .background-img-2 {
     background-repeat: no-repeat;
@@ -434,70 +449,33 @@ footer {
     position: relative;
 }
 
-.service-selector h1 {
-    text-align: center;
-    font-style: italic;
-    margin-bottom: 0;
-}
-
-.service-selector h2 {
-    text-align: center;
-    margin-bottom: 0;
-    font-weight: bold;
-    color: #FFFFFF;
-    opacity: 1;
-    transition: opacity 0.2s;
-}
-
-.service-selector-slide {
+/* Holds the arrows and the items container. Might rename to carousel. */
+.service-selector .service-selector-slide {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 28vw;
-    /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
-/* .service-selector-slide .left {
-    left: 7%;
-}
-
-.service-selector-slide .right {
-    right: 7%;
-} */
-
-/* .service-selector-slide .middle,
-.service-selector-slide .left,
-.service-selector-slide .right {
-    position: relative;
-    display: inline-block;
-    background-size: cover;
-    border-radius: 100%;
-    border: 10px solid #FFFFFF;
-    cursor: pointer;
-    transition: border-color 0.4s, transform 0.4s;
-} */
-
-.service-selector-slide .items {
+.service-selector .service-selector-slide .items {
     display: flex;
     width: 100%;
     height: 100%;
-    /* border: 1px solid yellow; */
     overflow: hidden;
     align-items: center;
 }
 
-.service-selector-slide .middle:hover,
-.service-selector-slide .left:hover,
-.service-selector-slide .right:hover {
+.service-selector .service-selector-slide .items .middle:hover,
+.service-selector .service-selector-slide .items .left:hover,
+.service-selector .service-selector-slide .items .right:hover {
     border-color: var(--white-hover-color);
 }
 
-.service-selector-slide .item-container {
+.service-selector .service-selector-slide .item-container {
     flex-grow: 0;
     flex-shrink: 0;
     width: 33.3%;
-    /* border: 1px solid red; */
     position: relative;
     right: 0;
     transition: right 0.4s;
@@ -505,12 +483,7 @@ footer {
     justify-content: center;
 }
 
-.service-selector-slide .item-content {
-    /* width: 100%;
-    height: 100%;
-    position: relative;
- */
-    /* border: 2px dashed green; */
+.service-selector .service-selector-slide .item-content {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -527,7 +500,7 @@ footer {
     aspect-ratio: 1 / 1;
 }
 
-.service-selector-slide .item-container.middle .item-content {
+.service-selector .service-selector-slide .item-container.middle .item-content {
     z-index: 1;
     width: 25vw;
     height: 25vw;
@@ -535,96 +508,54 @@ footer {
 }
 
 @media screen and (max-width: 1400px) {
-    .service-selector-slide .item-container .item-content {
+    .service-selector .service-selector-slide .item-container .item-content {
         width: 30vw;
         height: 30vw;
     }
 
-    .service-selector-slide .item-container.middle .item-content {
+    .service-selector .service-selector-slide .item-container.middle .item-content {
         width: 35vw;
         height: 35vw;
     }
 
-    .service-selector-slide {
+    .service-selector .service-selector-slide {
         height: 38vw;
     }
 }
 
-.service-selector-slide .item-container.tile .item-content {
+.service-selector .service-selector-slide .item-container.tile .item-content {
     background-image: url("../images/service-selector/vct-1.png");
 }
 
-.service-selector-slide .item-container.carpet .item-content {
+.service-selector .service-selector-slide .item-container.carpet .item-content {
     background-image: url("../images/service-selector/carpet-1.png");
 }
 
-.service-selector-slide .item-container.upholstery .item-content {
+.service-selector .service-selector-slide .item-container.upholstery .item-content {
     background-image: url("../images/service-selector/upholstery-1.png");
 }
 
-.service-selector-slide .item-container.service-4 .item-content {
+.service-selector .service-selector-slide .item-container.service-4 .item-content {
     background-image: url("../images/service-selector/vct-2.png");
 }
 
-.service-selector-slide .item-container.service-5 .item-content {
+.service-selector .service-selector-slide .item-container.service-5 .item-content {
     background-image: url("../images/service-selector/carpet-2.png");
 }
 
-/* .service-selector-slide .item {
-    flex-shrink: 0;
-    transition: left 0.4s, right 0.4s, width 2s, height 2s;
-    overflow: hidden;
-} */
-
-/* .service-selector-slide .item-container img {
-    width: 20vw;
-    height: 20vw;
-    border: 10px solid #FFFFFF;
-    border-radius: 100%;
-    position: relative;
-    right: 0;
-    transition: width 0.4s, height 0.4s, right 0.4s, transform 0.4s;
-    cursor: pointer;
-}
-
-.service-selector-slide .item-container.middle img {
-    width: 25vw;
-    height: 25vw;
-    right: 0;
-} */
-
-.service-selector-slide .item-container.left .item-content {
+.service-selector .service-selector-slide .item-container.left .item-content {
     right: -50%;
-    /* border: 2px dashed pink; */
 }
 
-.service-selector-slide .item-container.right .item-content {
+.service-selector .service-selector-slide .item-container.right .item-content {
     right: 50%;
-    /* border: 2px dashed purple; */
-}
- 
-
-/* .service-selector-slide img::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    background-color: #FFFFFF;
-    opacity: 0;
-    transition: opacity 0.4s;
 }
 
-.service-selector-slide img:hover::before {
-    opacity: 0.2;
-} */
-
-.service-selector-slide .item-content:hover {
+.service-selector .service-selector-slide .item-content:hover {
     transform: scale(1.05);
 }
 
-.service-selector-slide a {
+.service-selector .service-selector-slide a {
     width: 100%;
     height: 100%;
     z-index: 1;
@@ -633,16 +564,8 @@ footer {
     background-color: rgba(90, 90, 90, 0.65)
 }
 
-/* .service-selector-slide .left  {
-    right: -10%;
-}
-
-.service-selector-slide .right {
-    right: 10%;
-} */
-
-.service-selector-slide .left-arrow,
-.service-selector-slide .right-arrow {
+.service-selector .service-selector-slide .left-arrow,
+.service-selector .service-selector-slide .right-arrow {
     width: 4vw;
     height: 4vw;
     max-width: 60px;
@@ -663,34 +586,34 @@ footer {
     z-index: 2;
 }
 
-.service-selector-slide .left-arrow:hover,
-.service-selector-slide .right-arrow:hover {
+.service-selector .service-selector-slide .left-arrow:hover,
+.service-selector .service-selector-slide .right-arrow:hover {
     color: var(--white-hover-color);
 }
 
-.service-selector-slide .left-arrow {
+.service-selector .service-selector-slide .left-arrow {
     left: 7%;
 }
 
-.service-selector-slide .right-arrow {
+.service-selector .service-selector-slide .right-arrow {
     right: 7%;
 }
 
-.service-selector-slide .left-arrow span,
-.service-selector-slide .right-arrow span {
+.service-selector .service-selector-slide .left-arrow span,
+.service-selector .service-selector-slide .right-arrow span {
     position: relative;
     top: 2px;
 }
 
-.service-selector-slide .right-arrow span {
+.service-selector .service-selector-slide .right-arrow span {
     left: 2px;
 }
 
-.service-selector-slide .left-to-middle {
+.service-selector .service-selector-slide .left-to-middle {
     left: 29%;
 }
 
-.service-selector-slide .right-to-middle {
+.service-selector .service-selector-slide .right-to-middle {
     right: 29%;
 }
 
@@ -756,14 +679,6 @@ footer {
         margin-bottom: 6%;
     }
 
-    /* .service-selector h1 {
-        margin-bottom: 50px;
-    }
-
-    .service-selector .slide-dots {
-        margin-bottom: 50px;
-    } */
-
     .service-selector .button {
         width: 100%;
     }
@@ -778,7 +693,7 @@ footer {
 }
 
 @media screen and (max-width: 850px) {
-    .service-selector-slide .item-content {
+    .service-selector .service-selector-slide .item-content {
         border-width: 7px;
     }
 }
