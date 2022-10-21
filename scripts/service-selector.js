@@ -36,6 +36,9 @@ leftArrow.addEventListener("click", function() {
 
 let slideItems = setInterval(forward, 5 * 1000);
 
+/**
+ * Stops the slideItems interval, stopping the items from sliding automatically.
+ */
 function stopSlidingItems() {
     if (slideItems) {
         clearInterval(slideItems);
@@ -43,10 +46,19 @@ function stopSlidingItems() {
     }
 }
 
+/**
+ * Rounds a number to one decimal place.
+ * 
+ * @param {number} number Number to be rounded to one decimal place.
+ * @return {number} Number rounded to one decimal place.
+ */
 function roundToOneDecimal(number) {
     return Math.round(number * 10) / 10;
 }
 
+/**
+ * Adds an onClick event to each item for moving the items forward and backward. 
+ */
 let itemsContent = document.querySelectorAll(".item-container .item-content");
 for (let itemContent of itemsContent) {
     itemContent.addEventListener("click", function() {
@@ -68,6 +80,9 @@ for (let itemContent of itemsContent) {
     });
 }
 
+/**
+ * Adds an onClick event to each item's corresponding dot for moving the items forward and backward. 
+ */
 let dots = document.querySelectorAll(".dot");
 for (let dot of dots) {
     dot.addEventListener("click", function() {
@@ -87,6 +102,17 @@ for (let dot of dots) {
     });
 }
 
+/**
+ * Moves the items an amount of times in a direction. If there is a lesser amount of times
+ * available to move in the opposite direction while still arriving at the same new middle item,
+ * it will take that path instead. All animations will occur.
+ * 
+ * @param {number} times Amount of times to move the items.
+ * @param direction Direction to move the items by method call (forward or backward).
+ * @param {number} alternateTimes Alternate amount of times to move the items.
+ * @param alternateDirection Altenate direction to move the items by method call (forward or backward).
+ * @param {number} newMiddle The new middle item by id.
+ */
 function move(times, direction, alternateTimes, alternateDirection, newMiddle) {
     times = Math.abs(times);
     alternateTimes = Math.abs(alternateTimes);
@@ -128,7 +154,14 @@ function move(times, direction, alternateTimes, alternateDirection, newMiddle) {
     }, 0.1 * 1000);
 }
 
-function forward(doDotsScrollAnimation = true, doBackgroundAnimation = true, doTextChange = true) {
+/**
+ * Moves the items forward by one.
+ * 
+ * @param {boolean} doDotsAnimation true to do the dots animation, otherwise false.
+ * @param {boolean} doBackgroundAnimation true to do the background animation, otherwise false.
+ * @param {boolean} doTextChange true to do the text change (title, buttons), otherwise false.
+ */
+function forward(doDotsAnimation = true, doBackgroundAnimation = true, doTextChange = true) {
     let previousLeft = left;
     let previousRight = right;
     let previousMiddle = middle;
@@ -148,7 +181,7 @@ function forward(doDotsScrollAnimation = true, doBackgroundAnimation = true, doT
         middle = 0;
     }
 
-    moveItems(true, previousLeft, previousRight, previousMiddle, doDotsScrollAnimation, doBackgroundAnimation, doTextChange);
+    moveItems(true, previousLeft, previousRight, previousMiddle, doDotsAnimation, doBackgroundAnimation, doTextChange);
 
     next++;
     if (next == maxItems) {
@@ -162,7 +195,14 @@ function forward(doDotsScrollAnimation = true, doBackgroundAnimation = true, doT
     }
 }
 
-function backward(doDotsScrollAnimation = true, doBackgroundAnimation = true, doTextChange = true) {
+/**
+ * Moves the items backward by one.
+ * 
+ * @param {boolean} doDotsAnimation true to do the dots animation, otherwise false.
+ * @param {boolean} doBackgroundAnimation true to do the background animation, otherwise false.
+ * @param {boolean} doTextChange true to do the text change (title, buttons), otherwise false.
+ */
+function backward(doDotsAnimation = true, doBackgroundAnimation = true, doTextChange = true) {
     let previousLeft = left;
     let previousRight = right;
     let previousMiddle = middle;
@@ -182,7 +222,7 @@ function backward(doDotsScrollAnimation = true, doBackgroundAnimation = true, do
         middle = maxItems - 1;
     }
 
-    moveItems(false, previousLeft, previousRight, previousMiddle, doDotsScrollAnimation, doBackgroundAnimation, doTextChange);
+    moveItems(false, previousLeft, previousRight, previousMiddle, doDotsAnimation, doBackgroundAnimation, doTextChange);
 
     next--;
     if (next == -1) {
@@ -196,6 +236,18 @@ function backward(doDotsScrollAnimation = true, doBackgroundAnimation = true, do
     }
 }
 
+/**
+ * Moves the items either forward or backward by one. This is a helper method for forward and backward,
+ * since they share the same logic but only differ in a positive/negative way.
+ * 
+ * @param {boolean} isForward true to move forward, otherwise false to move backward.
+ * @param {number} previousLeft Previous left item by id. Before this method fully executes, this is the current left item.
+ * @param {number} previousRight The previous right item by id. Before this method fully executes, this is the current right item.
+ * @param {number} previousMiddle The previous middle item by id. Before this method fully executes, this is the current middle item.
+ * @param {boolean} doDotsAnimation true to do the dots animation, otherwise false.
+ * @param {boolean} doBackgroundAnimation true to do the background animation, otherwise false.
+ * @param {boolean} doTextChange true to do the text change (title, buttons), otherwise false.
+ */
 function moveItems(isForward, previousLeft, previousRight, previousMiddle, doDotsAnimation = true, doBackgroundAnimation = true, doTextChange = true) {
     while (invisibleTimeouts.length != 0) {
         let timeout = invisibleTimeouts.shift();
@@ -307,11 +359,24 @@ function moveItems(isForward, previousLeft, previousRight, previousMiddle, doDot
     }
 }
 
+/**
+ * Applies the dot animation.
+ * 
+ * @param {oldMiddle} oldMiddle Old middle item by id.
+ * @param {newMiddle} newMiddle New middle item by id.
+ */
 function applyDotsAnimation(oldMiddle, newMiddle) {
     document.querySelector(".dot[data-id='" + oldMiddle + "']").classList.remove("active");
     document.querySelector(".dot[data-id='" + newMiddle + "']").classList.add("active");
 }
 
+/**
+ * Applies the background animation.
+ * 
+ * @param {string} newImageSrc New background image source.
+ * @param {string} overlayOpacity Overlay opacity.
+ * @param {string} overlayColor Overlay color.
+ */
 function applyBackgroundAnimation(newImageSrc, overlayOpacity, overlayColor) {
     let inactiveBackground = 1;
     activeBackground++;
@@ -338,6 +403,13 @@ function applyBackgroundAnimation(newImageSrc, overlayOpacity, overlayColor) {
     document.querySelector(".service-selector .overlay").style.backgroundColor = overlayColor;
 }
 
+/**
+ * Applies the text change for the title and the buttons.
+ *  
+ * @param {string} newTitle New title.
+ * @param {string} newButtonText New button text (secondary button, not schedule button).
+ * @param {string} newButtonHref New button href (secondary button, not schedule button).
+ */
 function applyTextChange(newTitle, newButtonText, newButtonHref) {
     const title = document.querySelector(".service-selector h2");
     title.innerHTML = newTitle;
