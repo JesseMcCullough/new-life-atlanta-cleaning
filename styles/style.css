@@ -1,5 +1,8 @@
 :root {
-    --page-padding: 50px;
+    --page-padding-top: 50px;
+    --page-padding-bottom: 50px;
+    --page-padding-left: 50px; 
+    --page-padding-right: 50px;
     --text-color: #5A5A5A;
     --blue-color: #00C7FF;
     --blue-hover-color: #00B3E5;
@@ -50,9 +53,9 @@ p:last-child {
 
 section,
 footer {
-    padding-top: var(--page-padding);
-    padding-left: var(--page-padding);
-    padding-right: var(--page-padding);
+    padding-top: var(--page-padding-top);
+    padding-left: var(--page-padding-left);
+    padding-right: var(--page-padding-right);
 }
 
 .container {
@@ -265,6 +268,11 @@ footer {
 }
 
 @media screen and (max-width: 1500px) {
+    :root {
+        --page-padding-left: 40px;
+        --page-padding-right: 40px;
+    }
+
     .nav,
     .service-selector .buttons {
         padding: 0 40px;
@@ -282,6 +290,11 @@ footer {
 }
 
 @media screen and (max-width: 1355px) {
+    :root {
+        --page-padding-left: 30px;
+        --page-padding-right: 30px;
+    }
+
     .nav,
     .service-selector .buttons {
         padding: 0 30px;
@@ -295,6 +308,11 @@ footer {
 }
 
 @media screen and (max-width: 1235px) {
+    :root {
+        --page-padding-left: 20px;
+        --page-padding-right: 20px;
+    }
+
     .nav,
     .service-selector .buttons {
         padding: 0 20px;
@@ -381,8 +399,8 @@ footer {
     z-index: 0;
     padding-left: 0;
     padding-right: 0;
-    padding-top: calc(var(--page-padding) * 2);
-    padding-bottom: calc(var(--page-padding) * 2);
+    padding-top: calc(var(--page-padding-top) * 2);
+    padding-bottom: calc(var(--page-padding-bottom) * 2);
     color: #FFFFFF;
     text-align: center;
     display: flex;
@@ -699,11 +717,6 @@ footer {
     }
 }
 
-.about {
-    padding: 0;
-    margin: var(--page-padding); /* for absolute caption */
-}
-
 .about .container {
     display: flex;
     align-items: center;
@@ -712,7 +725,7 @@ footer {
 
 .about .text {
     flex-basis: 40%;
-    margin-right: var(--page-padding);
+    margin-right: var(--page-padding-right);
 }
 
 .about .image {
@@ -727,11 +740,13 @@ footer {
     border-radius: 100%;
     width: 100%;
     max-width: 600px;
+    aspect-ratio: 1 / 1;
 }
 
 .about .image .caption {
     order: 1;
     margin-top: 15px;
+    text-align: center;
 }
 
 .about .image .caption span {
@@ -762,7 +777,7 @@ footer {
 }
 
 .reviews {
-    margin-bottom: var(--page-padding);
+    margin-bottom: var(--page-padding-bottom);
 }
 
 .reviews .container {
@@ -824,10 +839,15 @@ footer {
         margin-bottom: 20px;
         max-width: none;
     }
+
+    .reviews .review:hover {
+        transform: none;
+    }
 }
  
 .cta-full-screen {
     height: 100vh;
+    min-height: 400px;
     background-color: var(--orange-color);
     color: #FFFFFF;
 }
@@ -848,7 +868,7 @@ footer {
 .cta-full-screen .button {
     background-color: #FFFFFF;
     color: var(--orange-color);
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .cta-full-screen .button:hover {
@@ -870,7 +890,6 @@ footer {
 .or-call a {
     color: #FFFFFF;
     transition: color 0.4s;
-    font-weight: bold;
     text-decoration: none;
 }
 
@@ -878,10 +897,14 @@ footer {
     color: var(--white-hover-color);
 }
 
+.or-call .phone {
+    font-weight: bold;
+}
+
 footer {
     height: 240px;
     background-color: #005C75;
-    padding-bottom: var(--page-padding);
+    padding-bottom: var(--page-padding-bottom);
 }
 
 footer .flex-container {
