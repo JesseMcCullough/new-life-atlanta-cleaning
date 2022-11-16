@@ -611,11 +611,11 @@ footer {
 }
 
 .service-selector .service-selector-slide .left-arrow {
-    left: 7%;
+    left: var(--page-padding-left);
 }
 
 .service-selector .service-selector-slide .right-arrow {
-    right: 7%;
+    right: var(--page-padding-right);
 }
 
 .service-selector .service-selector-slide .left-arrow span,
