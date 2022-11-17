@@ -63,7 +63,10 @@ footer {
     margin: 0 auto;
 }
 
+button,
 .button {
+    outline: none;
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,6 +79,7 @@ footer {
     font-size: 1.125em;
     text-align: center;
     transition: color 0.4s, background-color 0.4s, border-color 0.4s, width 0.4s !important;
+    cursor: pointer;
 }
 
 .invisible {
@@ -88,6 +92,7 @@ footer {
     }
 }
 
+button:hover,
 .button:hover {
     background-color: var(--orange-hover-color);
     color: var(--white-hover-color);
@@ -1077,3 +1082,114 @@ footer .copyright {
     margin-left: var(--page-padding-left);
 }
 
+.schedule-form {
+    min-height: 100vh;
+    background-color: var(--orange-color);
+    padding-top: calc(var(--page-padding-top) * 2);
+    padding-bottom: var(--page-padding-bottom);
+}
+
+.schedule-form h1 {
+    color: #FFFFFF;
+    font-size: 4em;
+    text-align: center;
+}
+
+.schedule-form p {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 1.5em;
+}
+
+.schedule-form .container {
+    max-width: 1000px;
+}
+
+.schedule-form form {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.schedule-form .group {
+    width: calc(50% - 5px);
+    height: 100%;
+}
+
+.schedule-form label {
+    padding-left: 10px;
+    color: #FFFFFF;
+    display: block;
+}
+
+.schedule-form input {
+    height: 60px;
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 20px 10px;
+    font-size: 1.25em;
+    border-radius: 10px;
+    font-family: Arial;
+}
+
+.schedule-form .zip-code,
+.schedule-form .city {
+    width: calc(25% - 7.5px);
+} 
+
+.schedule-form .description {
+    width: 100%;
+}
+
+.schedule-form textarea {
+    width: 100%;
+    height: 10em;
+    padding: 20px 10px;
+    font-family: Arial;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 1.25em;
+    resize: none;
+}
+
+.schedule-form button {
+    width: 100%;
+    background-color: #FFFFFF;
+    color: var(--orange-color);
+    font-size: 1.25em;
+}
+
+.schedule-form button:hover {
+    background-color: var(--white-hover-color);
+    color: var(--orange-hover-color);
+}
+
+@media screen and (max-width: 900px) {
+    .schedule-form .group {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1115px) {
+    .schedule-form h1 {
+        font-size: 3em;
+    }
+
+    .schedule-form p,
+    .schedule-form input,
+    .schedule-form textarea,
+    .schedule-form button {
+        font-size: 1em;
+    }
+
+    .schedule-form p {
+        line-height: 20px;
+    }
+}
