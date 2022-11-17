@@ -5,8 +5,8 @@
     <div class="background-img-1"></div>
     <div class="background-img-2"></div>
     <div class="container">
-        <h1>I need to clean my ... </h1>
-        <h2>Carpet</h2>
+        <h1>Carpet Cleaning </h1>
+        <h2>See the difference</h2>
         <div class="service-selector-slide">
             <div class="left-arrow"><span>&lt;</span></div>
             <div class="items">
@@ -49,8 +49,30 @@
             <div class="dot" data-id="4"></div>
         </div>
         <div class="buttons">
-            <a href="#" class="button secondary">Learn about&nbsp;<span class="service">carpet cleaning</span></a>
             <a href="#schedule" class="button">Schedule&nbsp;<span class="service"> carpet cleaning</a>
+        </div>
+    </div>
+</section>
+<section class="stats-banner">
+    <div class="container">
+        <p class="stat"><span class="highlight">99.9%</span>of germs eliminated <br />by free sanitizer</p>
+        <p class="stat"><span class="highlight">48x</span>faster drying <br />than steam cleaning</p>
+        <p class="stat"><span class="highlight">40+</span>years of <br />experience</p>
+    </div>
+</section>
+<section class="about">
+    <div class="container">
+        <div class="text">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel fermentum felis. Pellentesque malesuada elit eget pulvinar mollis. Maecenas sit amet mauris et elit rhoncus commodo. Sed vitae ornare arcu, non rhoncus nulla. Vivamus euismod rutrum ante vitae cursus. Etiam lorem ipsum, convallis non lacus a, malesuada porta turpis. Suspendisse potenti. Vivamus ut mi lorem. Fusce a odio sapien. Donec nec volutpat sem, id suscipit nibh. Pellentesque dui quam, ullamcorper quis vestibulum ultricies, commodo ut mi. Aenean et scelerisque urna, vel placerat dui. Maecenas tincidunt lectus quis tempus pretium.</p>
+            <p>Quisque maximus maximus ex. Vivamus rutrum egestas metus, vel fringilla odio iaculis eget. In aliquet arcu arcu. Aenean lorem mi, pulvinar in justo nec, convallis ornare est. Aliquam et vestibulum mauris, ultricies pellentesque eros. Maecenas fermentum dui feugiat velit hendrerit lacinia. Morbi ultrices tellus sit amet mauris consectetur, ac condimentum tellus suscipit. Mauris nec neque finibus, interdum odio vitae, sodales urna.</p>
+        </div>
+        <div class="image">
+            <div class="caption">
+                <span class="name">Ken &amp; Penny McCullough</span>
+                <span class="title">Owners / Operators</span>
+            </div>
+            <img src="images/ken-penny.png" />
         </div>
     </div>
 </section>
@@ -88,5 +110,3 @@ include_once("includes/cta-full-screen.php");
 include_once("includes/footer.php");
 
 ?>
-
-<script src="scripts/service-selector.js"></script>

@@ -994,3 +994,41 @@ footer .copyright {
         width: 100%;
     }
 }
+
+.stats-banner {
+    background-color: var(--blue-color);
+}
+
+.stats-banner .container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.stats-banner .stat {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 1.5em;
+    width: 230px;
+}
+
+.stats-banner .stat .highlight {
+    display: block;
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 900px) {
+    .stats-banner .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stats-banner .stat {
+        margin-bottom: 100px;
+    }
+
+    
+    .stats-banner .stat:last-child {
+        margin-bottom: 50px;
+    }
+}
