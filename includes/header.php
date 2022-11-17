@@ -1,3 +1,34 @@
+<?php
+
+session_start();
+
+$configString = file_get_contents("config.json");
+$config = json_decode($configString, true);
+$mail = $config["mail"];
+
+function getMailHeaders() {
+	global $mail;
+
+	$headers = "From: \"" . $mail["name"] . "\" <" . $mail["address"] . ">\r\n"
+			. "Reply-To: \"" . $mail["name"] . "\" <" . $mail["address"] . ">\r\n";
+
+	$mailToArray = $mail["to"];
+	$mailToArrayCount = count($mailToArray);
+
+	$mailToOthers = "";
+	for ($x = 0; $x < $mailToArrayCount; $x++) {
+		$mailToOthers .= "\"" . $mail["to"][$x]["name"] . "\" <" . $mail["to"][$x]["address"] . ">";
+		if ($x != $mailToArrayCount - 1) { // not last 
+			$mailToOthers .= ",";
+		}
+	}
+	$headers .= "Bcc: " . $mailToOthers;
+
+	return $headers;
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

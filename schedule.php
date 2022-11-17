@@ -4,57 +4,107 @@
     <div class="container">
         <h1>Schedule your cleaning</h1>
         <p>We'll call you to confirm and price your cleaning, plus answer any of your questions. No payment is due until your cleaning is completed.</p>
-        <form>
-            <div class="group">
-                <label for="first-name">First Name</label>
-                <input type="text" name="firstName" id="first-name" placeholder="First Name" />
-            </div>
-            <div class="group">
-                <label for="last-name">Last Name</label>
-                <input type="text" name="lastName" id="last-name" placeholder="Last Name" />
-            </div>
-            <div class="group">
-                <label for="phone">Phone</label>
-                <input type="tel" name="phone" id="phone" placeholder="Phone" />
-            </div>
-            <div class="group">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Email" />
-            </div>
-            <div class="group">
-                <label for="street-address">Street Address</label>
-                <input type="text" name="streetAddress" id="fstreet-address" placeholder="Street Address" />
-            </div>
-            <div class="group city">
-                <label for="city">City</label>
-                <input type="text" name="city" id="city" placeholder="City" />
-            </div>
-            <div class="group zip-code">
-                <label for="zip-code">ZIP Code</label>
-                <input type="text" name="zipCode" id="zip-code" placeholder="ZIP Code" />
-            </div>
-            <div class="group">
-                <label for="date">Cleaning Date</label>
-                <input type="date" name="date" id="date" placeholder="Cleaning Date" />
-            </div>
-            <div class="group">
-                <label for="time">Time</label>
-                <input type="time" name="time" id="time" placeholder="Time" />
-            </div>
-            <div class="group description">
-                <label for="description">Description</label>
-                <textarea name="description" id="description" placeholder="I need to clean my ..."></textarea>
-            </div>
-            <button type="submit">Schedule cleaning</button>
-            <!-- <input type="text" name="lastName" placeholder="Last Name" />
-            <input type="tel" name="phone" placeholder="Phone" />
-            <input type="email" name="email" placeholder="Email" />
-            <input type="text" name="streetAddress" placeholder="Street Address" />
-            <input type="text" name="city" placeholder="City" />
-            <input type="text" name="zipCode" placeholder="Zip Code" />
-            <input type="date" name="date" placeholder="Cleaning Date" />
-            <input type="time" name="time" step="900" placeholder="Cleaning Time" /> -->
-        </form>
+        <?php
+
+        if (isset($_SESSION["completedScheduleForm"])) {
+            echo '<p class="success">You\'re all set! We\'ll be in touch within 24 hours.</p>';
+        } else if (isset($_POST["submit"])) {
+            $missingFields = [];
+
+            if (empty(trim($_POST["firstName"]))) {
+                $missingFields[] = "first name";
+            }
+
+            if (empty(trim($_POST["lastName"]))) {
+                $missingFields[] = "last name";
+            }
+
+            if (empty(trim($_POST["phone"]))) {
+                $missingFields[] = "phone";
+            }
+
+            if (empty($_POST["email"])) {
+                $missingFields[] = "email";
+            }
+
+            if (empty($_POST["streetAddress"])) {
+                $missingFields[] = "street address";
+            }
+
+            if (empty($_POST["city"])) {
+                $missingFields[] = "city";
+            }
+
+            if (empty($_POST["zipCode"])) {
+                $missingFields[] = "ZIP code";
+            }
+
+            if (empty(trim($_POST["date"]))) {
+                $missingFields[] = "cleaning date";
+            }
+
+            if (empty(trim($_POST["time"]))) {
+                $missingFields[] = "cleaning time";
+            }
+
+            if (empty(trim($_POST["description"]))) {
+                $missingFields[] = "description";
+            }
+
+            if (!empty($missingFields)) {
+                $fields = "";
+                $missingFieldsCount = count($missingFields);
+                $requiresCommaSeparation = $missingFieldsCount >= 3;
+
+                if ($missingFieldsCount == 1) {
+                    $fields = $missingFields[0];
+                } else {
+                    for ($x = 0; $x < $missingFieldsCount; $x++) {
+                        if ($requiresCommaSeparation) {
+                            if ($x < $missingFieldsCount - 1) { // Any element that's not the last element.
+                                $fields .= $missingFields[$x] . ", ";
+                            } else if ($x == $missingFieldsCount - 1) { // The element is the element.
+                                $fields .= "and " . $missingFields[$x];
+                            }
+                        } else { // Only two missing fields.
+                            if ($x == 0) {
+                                $fields .= $missingFields[$x] . " and ";
+                            } else {
+                                $fields .= $missingFields[$x];
+                            }
+                        }
+                    }
+                }
+            
+                echo '<p class="error">Please enter your ' . $fields . '.</p>';
+                include_once("includes/schedule-form.php");
+            } else {
+                $subject = "Schedule Cleaning";
+                $headers = getMailHeaders();
+                $dateFormatted = date_format(date_create($_POST["date"]), "F j, Y");
+                $message = "Name: " . $_POST["firstName"] . " " . $_POST["lastName"] . "\n"
+                        . "Phone: " . $_POST["phone"] . "\n"
+                        . "Email: " . $_POST["email"] . "\n"
+                        . "Street Address: " . $_POST["streetAddress"] . "\n"
+                        . "City: " . $_POST["city"] . "\n"
+                        . "ZIP Code: " . $_POST["zipCode"] . "\n"
+                        . "Date: " . $dateFormatted . "\n"
+                        . "Time: " . $_POST["time"] . "\n"
+                        . "Description: " . $_POST["description"] . "\n";
+                
+                if (mail($mail["address"], $subject, $message, $headers)) {
+                    $_SESSION["completedScheduleForm"] = true;
+                    echo '<p class="success">You\'re all set! We\'ll be in touch within 24 hours.</p>';
+                } else {
+                    echo '<p>Something went wrong. Please try again.</p>';
+                    include_once("includes/schedule-form.php");
+                }
+            }
+        } else {
+            include_once("includes/schedule-form.php");
+        }
+        
+        ?>
     </div>
 </section>
 
