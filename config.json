@@ -1,0 +1,12 @@
+{
+    "mail": {
+        "name": "Jesse McCullough",
+        "address": "jesse@jessem.dev",
+        "to": [
+            {"name": "Jesse McCullough", "address": "jesse.mccullough@hotmail.com"},
+            {"name": "Jesse McCullough Dev", "address": "jesse@jessem.dev"}
+        ]
+    },
+    "recaptcha_site_key": "",
+    "recaptcha_secret_key": ""
+}
