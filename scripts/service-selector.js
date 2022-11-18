@@ -67,11 +67,6 @@ for (let itemContent of itemsContent) {
         let itemContainer = itemContent.parentElement;
         let id = parseInt(itemContainer.dataset.id);
 
-        if (id == middle) {
-            window.location.href = itemContainer.dataset.buttonHref;
-            return;
-        }
-
         if ((id == next - 1) || (id == maxItems - 1 && next == 0)) {
             forward();
         } else if (id == previous + 1 || (id == 0 && previous == maxItems - 1)) {
@@ -287,7 +282,6 @@ function moveItems(isForward, previousLeft, previousRight, previousMiddle, doDot
 
             rightOffscreenBoxOffset = roundToOneDecimal(rightOffscreenBoxOffset + moveItemsBy);
             if (rightOffscreenBoxOffset < rightOffScreenBoxLowerLimit) {
-                console.log("Reset here");
                 rightOffscreenBoxOffset = rightOffScreenBoxUpperLimit;
             }
 
