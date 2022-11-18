@@ -46,8 +46,7 @@
     </div>
     <div class="group description">
         <label for="description">Description</label>
-        <textarea name="description" id="description" placeholder="I need to clean my ..."
-                value="<?php if (isset($_POST["description"])) { echo $_POST["description"]; }?>"></textarea>
+        <textarea name="description" id="description" placeholder="I need to clean my ..."><?php if (isset($_POST["description"])) { echo $_POST["description"]; }?></textarea>
     </div>
     <div class="g-recaptcha" data-sitekey="<?php echo $config["recaptcha_site_key"]; ?>"></div>
     <button type="submit" name="submit">Schedule cleaning</button>
