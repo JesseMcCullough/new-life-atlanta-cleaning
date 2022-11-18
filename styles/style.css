@@ -515,7 +515,9 @@ button:hover,
     justify-content: center;
     align-items: center;
     width: 20vw;
+    max-width: 385px;
     height: 20vw;
+    max-height: 385px;
     border: 10px solid #FFFFFF;
     border-radius: 100%;
     position: relative;
@@ -530,7 +532,9 @@ button:hover,
 .service-selector .service-selector-slide .item-container.middle .item-content {
     z-index: 1;
     width: 25vw;
+    max-width: 480px;
     height: 25vw;
+    max-height: 480px;
     right: 0;
 }
 
