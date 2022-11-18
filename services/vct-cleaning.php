@@ -6,7 +6,7 @@ include_once("../includes/header.php"); ?>
 
 <section class="service-selector before-after">
     <div class="overlay"></div>
-    <div class="background-img-1"></div>
+    <div class="background-img-1" style="background-image: url('<?php echo $rootDirectory; ?>images/vct-cleaning/vct-cleaning-1.jpg')"></div>
     <div class="background-img-2"></div>
     <div class="container">
         <h1>VCT Cleaning</h1>
@@ -15,34 +15,22 @@ include_once("../includes/header.php"); ?>
             <div class="left-arrow"><span>&lt;</span></div>
             <div class="items">
                 <div class="item-container middle" data-id="0"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png"
+                        data-background-image="<?php echo $rootDirectory; ?>images/vct-cleaning/vct-cleaning-1.jpg"
                         data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">1</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
+                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/vct-cleaning/vct-cleaning-1.jpg')"></div>
+                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/vct-cleaning/vct-cleaning-2.jpg')"></div>
                 </div>
                 <div class="item-container invisible" data-id="1"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/vct-1.png"
+                        data-background-image="<?php echo $rootDirectory; ?>images/vct-cleaning/vct-cleaning-3.jpg"
                         data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">2</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
+                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/vct-cleaning/vct-cleaning-3.jpg')"></div>
+                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/vct-cleaning/vct-cleaning-4.jpg')"></div>
                 </div>
                 <div class="item-container invisible" data-id="2"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png"
+                        data-background-image="<?php echo $rootDirectory; ?>images/vct-cleaning/vct-cleaning-5.jpg"
                         data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">3</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
-                </div>
-                <div class="item-container invisible" data-id="3"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/vct-1.png"
-                        data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">4</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
-                </div>
-                <div class="item-container invisible" data-id="4"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/vct-1.png"
-                        data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">5</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
+                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/vct-cleaning/vct-cleaning-5.jpg')"></div>
+                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/vct-cleaning/vct-cleaning-6.jpg')"></div>
                 </div>
             </div>
             <div class="right-arrow"><span>&gt;</span></div>
@@ -51,11 +39,9 @@ include_once("../includes/header.php"); ?>
             <div class="dot active" data-id="0"></div>
             <div class="dot" data-id="1"></div>
             <div class="dot" data-id="2"></div>
-            <div class="dot" data-id="3"></div>
-            <div class="dot" data-id="4"></div>
         </div>
         <div class="buttons">
-            <a href="#schedule" class="button">Schedule&nbsp;<span class="service"> VCT cleaning</a>
+            <a href="<?php echo $rootDirectory; ?>schedule.php" class="button">Schedule&nbsp;<span class="service"> VCT cleaning</a>
         </div>
     </div>
 </section>
@@ -75,7 +61,7 @@ include_once("../includes/header.php"); ?>
             <p>Stripping and waxing your VCT floors every 9-12 months keeps them looking great for years to come.</p>
         </div>
         <div class="image">
-            <img src="<?php echo $rootDirectory; ?>images/service-selector/vct-1.png" />
+            <img src="<?php echo $rootDirectory; ?>images/vct-cleaning/vct-cleaning-7.jpg" />
         </div>
     </div>
 </section>
@@ -89,7 +75,7 @@ include_once("../includes/header.php"); ?>
             <p>Once the old finish is removed, the new finish can then be applied to make your VCT flooring come to life again!</p>
         </div>
         <div class="image">
-            <img src="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png" />
+            <img src="<?php echo $rootDirectory; ?>images/vct-cleaning/vct-cleaning-1.jpg" />
         </div>
     </div>
 </section>
@@ -101,7 +87,7 @@ include_once("../includes/header.php"); ?>
             <p>Keep your VCT floors clean and increase their lifespan with professional VCT floor care services from New Life Atlanta Cleaning.</p>
         </div>
         <div class="image">
-            <img src="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png" />
+            <img src="<?php echo $rootDirectory; ?>images/vct-cleaning/vct-cleaning-2.jpg" />
         </div>
     </div>
 </section>
