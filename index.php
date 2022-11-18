@@ -10,31 +10,41 @@
         <div class="service-selector-slide">
             <div class="left-arrow"><span>&lt;</span></div>
             <div class="items">
-                <div class="item-container left tile" data-id="0" data-title="Tile"
-                        data-button-text="tile cleaning" data-button-href="#tilecleaning"
+                <div class="item-container left tile" data-id="0" data-title="VCT"
+                        data-button-text="VCT cleaning" data-button-href="services/vct-cleaning.php"
                         data-background-image="images/service-selector/vct-1.png"
                         data-overlay-opacity="0.5">
                     <div class="item-content"></div>
                 </div>
                 <div class="item-container middle carpet" data-id="1" data-title="Carpet"
-                        data-button-text="carpet cleaning" data-button-href="#carpetcleaning"
+                        data-button-text="carpet cleaning" data-button-href="services/carpet-cleaning.php"
                         data-background-image="images/service-selector/carpet-1.png">
                     <div class="item-content"></div>
                 </div>
                 <div class="item-container right upholstery" data-id="2" data-title="Upholstery"
-                        data-button-text="upholstery cleaning" data-button-href="#upholsterycleaning"
+                        data-button-text="upholstery cleaning" data-button-href="services/upholstery-cleaning.php"
                         data-background-image="images/service-selector/upholstery-1.png"
                         data-overlay-opacity="0.4">
                     <div class="item-content"></div>
                 </div>
-                <div class="item-container invisible service-4" data-id="3" data-title="Service 4"
-                        data-button-text="service 4 cleaning" data-button-href="#service4cleaning"
+                <div class="item-container invisible service-4" data-id="3" data-title="Area Rug"
+                        data-button-text="area rug cleaning" data-button-href="services/area-rug-cleaning.php"
                         data-background-image="images/service-selector/vct-2.png"
                         data-overlay-opacity="0.8">
                     <div class="item-content"></div>
                 </div>
-                <div class="item-container invisible service-5" data-id="4" data-title="Service 5"
-                        data-button-text="service 5 cleaning" data-button-href="#service5cleaning"
+                <div class="item-container invisible service-5" data-id="4" data-title="Empty House"
+                        data-button-text="empty house cleaning" data-button-href="services/empty-house-cleaning.php"
+                        data-background-image="images/service-selector/carpet-2.png">
+                    <div class="item-content"></div>
+                </div>
+                <div class="item-container invisible service-6" data-id="5" data-title="Pet Odor"
+                        data-button-text="pet odor removal" data-button-href="services/pet-odor-removal.php"
+                        data-background-image="images/service-selector/carpet-2.png">
+                    <div class="item-content"></div>
+                </div>
+                <div class="item-container invisible service-7" data-id="6" data-title="Whole House Odor"
+                        data-button-text="whole house odor removal" data-button-href="services/whole-house-odor-removal.php"
                         data-background-image="images/service-selector/carpet-2.png">
                     <div class="item-content"></div>
                 </div>
@@ -47,6 +57,8 @@
             <div class="dot" data-id="2"></div>
             <div class="dot" data-id="3"></div>
             <div class="dot" data-id="4"></div>
+            <div class="dot" data-id="5"></div>
+            <div class="dot" data-id="6"></div>
         </div>
         <div class="buttons">
             <a href="#" class="button secondary">Learn about&nbsp;<span class="service">carpet cleaning</span></a>
