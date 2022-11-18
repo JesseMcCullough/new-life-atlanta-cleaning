@@ -1193,3 +1193,8 @@ footer .copyright {
         line-height: 20px;
     }
 }
+
+.g-recaptcha {
+    margin: 0 auto;
+    margin-bottom: 3px;
+}

@@ -36,6 +36,7 @@ function getMailHeaders() {
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <title>New Life Atlanta Cleaning</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <div class="nav">

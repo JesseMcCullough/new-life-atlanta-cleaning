@@ -79,25 +79,36 @@
                 echo '<p class="error">Please enter your ' . $fields . '.</p>';
                 include_once("includes/schedule-form.php");
             } else {
-                $subject = "Schedule Cleaning";
-                $headers = getMailHeaders();
-                $dateFormatted = date_format(date_create($_POST["date"]), "F j, Y");
-                $message = "Name: " . $_POST["firstName"] . " " . $_POST["lastName"] . "\n"
-                        . "Phone: " . $_POST["phone"] . "\n"
-                        . "Email: " . $_POST["email"] . "\n"
-                        . "Street Address: " . $_POST["streetAddress"] . "\n"
-                        . "City: " . $_POST["city"] . "\n"
-                        . "ZIP Code: " . $_POST["zipCode"] . "\n"
-                        . "Date: " . $dateFormatted . "\n"
-                        . "Time: " . $_POST["time"] . "\n"
-                        . "Description: " . $_POST["description"] . "\n";
-                
-                if (mail($mail["address"], $subject, $message, $headers)) {
-                    $_SESSION["completedScheduleForm"] = true;
-                    echo '<p class="success">You\'re all set! We\'ll be in touch within 24 hours.</p>';
-                } else {
-                    echo '<p>Something went wrong. Please try again.</p>';
+                $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify";
+                $recaptchaSecretKey = $config["recaptcha_secret_key"];
+                $recaptchaResponse = $_POST["g-recaptcha-response"];
+                $recaptcha = file_get_contents($recaptchaUrl . "?secret=" . $recaptchaSecretKey . "&response=" . $recaptchaResponse);
+                $recaptcha = json_decode($recaptcha, true);
+
+                if (!$recaptcha["success"]) {
+                    echo '<p class="error">Verification failed. Please reverify and resubmit the form.</p>';
                     include_once("includes/schedule-form.php");
+                } else {
+                    $subject = "Schedule Cleaning";
+                    $headers = getMailHeaders();
+                    $dateFormatted = date_format(date_create($_POST["date"]), "F j, Y");
+                    $message = "Name: " . $_POST["firstName"] . " " . $_POST["lastName"] . "\n"
+                            . "Phone: " . $_POST["phone"] . "\n"
+                            . "Email: " . $_POST["email"] . "\n"
+                            . "Street Address: " . $_POST["streetAddress"] . "\n"
+                            . "City: " . $_POST["city"] . "\n"
+                            . "ZIP Code: " . $_POST["zipCode"] . "\n"
+                            . "Date: " . $dateFormatted . "\n"
+                            . "Time: " . $_POST["time"] . "\n"
+                            . "Description: " . $_POST["description"] . "\n";
+                    
+                    if (mail($mail["address"], $subject, $message, $headers)) {
+                        $_SESSION["completedScheduleForm"] = true;
+                        echo '<p class="success">You\'re all set! We\'ll be in touch within 24 hours.</p>';
+                    } else {
+                        echo '<p>Something went wrong. Please try again.</p>';
+                        include_once("includes/schedule-form.php");
+                    }
                 }
             }
         } else {
