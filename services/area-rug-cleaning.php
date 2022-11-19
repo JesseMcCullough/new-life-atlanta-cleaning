@@ -5,7 +5,7 @@ $_POST["title"] = "Area Rug Cleaning";
 include_once("../includes/header.php"); ?>
 
 <section class="service-selector before-after">
-    <div class="overlay"></div>
+    <div class="overlay" style="opacity: 0.7"></div>
     <div class="background-img-1" style="background-image: url('<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-1.jpg')"></div>
     <div class="background-img-2"></div>
     <div class="container">
@@ -16,7 +16,7 @@ include_once("../includes/header.php"); ?>
             <div class="items">
                 <div class="item-container middle" data-id="0"
                         data-background-image="<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-1.jpg"
-                        data-overlay-opacity="0.5">
+                        data-overlay-opacity="0.7">
                     <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-1.jpg')"></div>
                     <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-7.jpg')"></div>
                 </div>
@@ -28,7 +28,7 @@ include_once("../includes/header.php"); ?>
                 </div>
                 <div class="item-container invisible" data-id="2"
                         data-background-image="<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-4.jpg"
-                        data-overlay-opacity="0.5">
+                        data-overlay-opacity="0.8">
                     <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-4.jpg')"></div>
                     <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-5.jpg')"></div>
                 </div>

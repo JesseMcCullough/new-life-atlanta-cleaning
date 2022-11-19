@@ -34,7 +34,7 @@ include_once("../includes/header.php"); ?>
                 </div>
                 <div class="item-container invisible" data-id="3"
                         data-background-image="<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-1-after.jpg"
-                        data-overlay-opacity="0.5">
+                        data-overlay-opacity="0.7">
                     <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-1-before.jpg')"></div>
                     <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-1-after.jpg')"></div>
                 </div>

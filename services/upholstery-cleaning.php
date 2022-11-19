@@ -22,7 +22,7 @@ include_once("../includes/header.php"); ?>
                 </div>
                 <div class="item-container invisible" data-id="1"
                         data-background-image="<?php echo $rootDirectory; ?>images/upholstery-cleaning/upholstery-cleaning-3.jpg"
-                        data-overlay-opacity="0.5">
+                        data-overlay-opacity="0.7">
                     <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/upholstery-cleaning/upholstery-cleaning-3.jpg')"></div>
                     <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/upholstery-cleaning/upholstery-cleaning-1.jpg')"></div>
                 </div>
