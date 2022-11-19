@@ -55,7 +55,7 @@ include_once("../includes/header.php"); ?>
             <div class="dot" data-id="4"></div>
         </div>
         <div class="buttons">
-            <a href="#schedule" class="button">Schedule&nbsp;<span class="service"> pet odor removal</a>
+            <a href="<?php echo $rootDirectory; ?>schedule.php" class="button">Schedule&nbsp;<span class="service"> pet odor removal</a>
         </div>
     </div>
 </section>

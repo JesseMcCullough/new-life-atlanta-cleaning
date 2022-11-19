@@ -34,7 +34,7 @@ include_once("../includes/header.php"); ?>
             <div class="dot" data-id="1"></div>
         </div>
         <div class="buttons">
-            <a href="#schedule" class="button">Schedule&nbsp;<span class="service"> upholstery cleaning</a>
+            <a href="<?php echo $rootDirectory; ?>schedule.php" class="button">Schedule&nbsp;<span class="service"> upholstery cleaning</a>
         </div>
     </div>
 </section>
