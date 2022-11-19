@@ -2,7 +2,12 @@
 
 session_start();
 
-$configString = file_get_contents("config.json");
+$rootDirectory = "";
+if (isset($_POST["rootDirectory"])) {
+    $rootDirectory = $_POST["rootDirectory"];
+}
+
+$configString = file_get_contents($rootDirectory . "config.json");
 $config = json_decode($configString, true);
 $mail = $config["mail"];
 
@@ -27,6 +32,18 @@ function getMailHeaders() {
 	return $headers;
 }
 
+// If a title is given, the title will be "GIVEN_TITLE | New Life Atlanta Cleaning".
+$title = "New Life Atlanta Cleaning";
+if (isset($_POST["title"])) {
+    $temp = $title;
+    $title = $_POST["title"] . " | " . $temp;
+}
+
+$hasNavigationBackground = false;
+if (isset($_POST["hasNavigationBackground"])) {
+    $hasNavigationBackground = $_POST["hasNavigationBackground"];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -34,28 +51,27 @@ function getMailHeaders() {
 <head>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <meta charset="UTF-8" />
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
-    <title>New Life Atlanta Cleaning</title>
+    <link rel="stylesheet" type="text/css" href="<?php echo $rootDirectory; ?>styles/style.css" />
+    <title><?php echo $title; ?></title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-    <div class="nav">
+    <div class="nav<?php if ($hasNavigationBackground) { echo " background"; } ?>">
         <div class="container">
-            <a href="index.php" class="logo"><img src="images/logo.png" /></a>
+            <a href="<?php echo $rootDirectory; ?>index.php" class="logo"><img src="<?php echo $rootDirectory; ?>images/logo.png" /></a>
             <ul>
                 <li class="schedule"><a href="#">Schedule</a></li>
-                <li><a href="service.php">Tile</a></li>
-                <li><a href="#">Carpet</a></li>
-                <li><a href="#">Upholstery</a></li>
-                <li><a href="#">Rug</a></li>
-                <li><a href="#">Hardwood</a></li>
-                <li><a href="#">Upholstery</a></li>
-                <li><a href="#">Rug</a></li>
-                <li><a href="#">Hardwood</a></li>
+                <li><a href="<?php echo $rootDirectory; ?>services/vct-cleaning.php">VCT</a></li>
+                <li><a href="<?php echo $rootDirectory; ?>services/carpet-cleaning.php">Carpet</a></li>
+                <li><a href="<?php echo $rootDirectory; ?>services/upholstery-cleaning.php">Upholstery</a></li>
+                <li><a href="<?php echo $rootDirectory; ?>services/area-rug-cleaning.php">Area Rug</a></li>
+                <li><a href="<?php echo $rootDirectory; ?>services/empty-house-cleaning.php">Empty House</a></li>
+                <li><a href="<?php echo $rootDirectory; ?>services/pet-odor-removal.php">Pet Odor</a></li>
+                <li><a href="<?php echo $rootDirectory; ?>services/whole-house-odor-removal.php">Whole House Odor</a></li>
             </ul>
             <div class="phone-cta">
                 <a href="tel:(678)318-1353" class="phone">
-                    <img src="images/icons/phone-icon.png" />
+                    <img src="<?php echo $rootDirectory; ?>images/icons/phone-icon.png" />
                     (678) 318-1353
                 </a>
                 <a href="#" class="button">Schedule</a>
