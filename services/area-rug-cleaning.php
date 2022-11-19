@@ -6,7 +6,7 @@ include_once("../includes/header.php"); ?>
 
 <section class="service-selector before-after">
     <div class="overlay"></div>
-    <div class="background-img-1"></div>
+    <div class="background-img-1" style="background-image: url('<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-1.jpg')"></div>
     <div class="background-img-2"></div>
     <div class="container">
         <h1>Area Rug Cleaning </h1>
@@ -15,34 +15,22 @@ include_once("../includes/header.php"); ?>
             <div class="left-arrow"><span>&lt;</span></div>
             <div class="items">
                 <div class="item-container middle" data-id="0"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png"
+                        data-background-image="<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-1.jpg"
                         data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">1</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
+                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-1.jpg')"></div>
+                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-7.jpg')"></div>
                 </div>
                 <div class="item-container invisible" data-id="1"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/vct-1.png"
+                        data-background-image="<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-2.jpg"
                         data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">2</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
+                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-2.jpg')"></div>
+                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-3.jpg')"></div>
                 </div>
                 <div class="item-container invisible" data-id="2"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png"
+                        data-background-image="<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-4.jpg"
                         data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">3</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
-                </div>
-                <div class="item-container invisible" data-id="3"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/vct-1.png"
-                        data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">4</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
-                </div>
-                <div class="item-container invisible" data-id="4"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/vct-1.png"
-                        data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">5</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
+                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-4.jpg')"></div>
+                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-5.jpg')"></div>
                 </div>
             </div>
             <div class="right-arrow"><span>&gt;</span></div>
@@ -51,8 +39,6 @@ include_once("../includes/header.php"); ?>
             <div class="dot active" data-id="0"></div>
             <div class="dot" data-id="1"></div>
             <div class="dot" data-id="2"></div>
-            <div class="dot" data-id="3"></div>
-            <div class="dot" data-id="4"></div>
         </div>
         <div class="buttons">
             <a href="#schedule" class="button">Schedule&nbsp;<span class="service"> area rug cleaning</a>
@@ -75,7 +61,7 @@ include_once("../includes/header.php"); ?>
             <p>Save up to 400% compared to competitors pricing, when you choose New Life Atlanta Cleaning for your area rug cleaning.</p>
         </div>
         <div class="image">
-            <img src="<?php echo $rootDirectory; ?>images/service-selector/vct-1.png" />
+            <img src="<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-6.jpg" />
         </div>
     </div>
 </section>
@@ -86,7 +72,7 @@ include_once("../includes/header.php"); ?>
             <p>Perfectly safe to do inside your home, right on top of your floors which can save you a bundle on pick up and delivery fees! Choosing another company could cost you hundreds more!</p>
         </div>
         <div class="image">
-            <img src="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png" />
+            <img src="<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-1.jpg" />
         </div>
     </div>
 </section>
@@ -100,7 +86,7 @@ include_once("../includes/header.php"); ?>
             <p>Get the respect you deserve. No exorbitant fees just because it's a rug. Experience how easy and effective it is to have your area rugs cleaned by New Life!</p>
         </div>
         <div class="image">
-            <img src="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png" />
+            <img src="<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-2.jpg" />
         </div>
     </div>
 </section>
@@ -113,7 +99,7 @@ include_once("../includes/header.php"); ?>
             <p>Don't take any more chances, give us a call today!</p>
         </div>
         <div class="image">
-            <img src="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png" />
+            <img src="<?php echo $rootDirectory; ?>images/area-rug-cleaning/area-rug-cleaning-7.jpg" />
         </div>
     </div>
 </section>
