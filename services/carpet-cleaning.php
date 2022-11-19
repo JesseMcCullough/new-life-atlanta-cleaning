@@ -6,7 +6,7 @@ include_once("../includes/header.php"); ?>
 
 <section class="service-selector before-after">
     <div class="overlay"></div>
-    <div class="background-img-1"></div>
+    <div class="background-img-1" style="background-image: url('<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-2-after.jpg')"></div>
     <div class="background-img-2"></div>
     <div class="container">
         <h1>Carpet Cleaning</h1>
@@ -15,34 +15,28 @@ include_once("../includes/header.php"); ?>
             <div class="left-arrow"><span>&lt;</span></div>
             <div class="items">
                 <div class="item-container middle" data-id="0"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png"
+                        data-background-image="<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-2-after.jpg"
                         data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">1</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
+                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-2-before.jpg')"></div>
+                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-2-after.jpg')"></div>
                 </div>
                 <div class="item-container invisible" data-id="1"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/vct-1.png"
+                        data-background-image="<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-3-after.jpg"
                         data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">2</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
+                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-3-before.jpg')"></div>
+                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-3-after.jpg')"></div>
                 </div>
                 <div class="item-container invisible" data-id="2"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png"
+                        data-background-image="<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-4-after.jpg"
                         data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">3</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
+                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-4-before.jpg')"></div>
+                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-4-after.jpg')"></div>
                 </div>
                 <div class="item-container invisible" data-id="3"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/vct-1.png"
+                        data-background-image="<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-1-after.jpg"
                         data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">4</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
-                </div>
-                <div class="item-container invisible" data-id="4"
-                        data-background-image="<?php echo $rootDirectory; ?>images/service-selector/vct-1.png"
-                        data-overlay-opacity="0.5">
-                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1-before-demo.png')">5</div>
-                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png')"></div>
+                    <div class="item-content before" style="background-image: url('<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-1-before.jpg')"></div>
+                    <div class="item-content after" style="background-image: url('<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-1-after.jpg')"></div>
                 </div>
             </div>
             <div class="right-arrow"><span>&gt;</span></div>
@@ -52,7 +46,6 @@ include_once("../includes/header.php"); ?>
             <div class="dot" data-id="1"></div>
             <div class="dot" data-id="2"></div>
             <div class="dot" data-id="3"></div>
-            <div class="dot" data-id="4"></div>
         </div>
         <div class="buttons">
             <a href="#schedule" class="button">Schedule&nbsp;<span class="service"> carpet cleaning</a>
@@ -74,7 +67,7 @@ include_once("../includes/header.php"); ?>
             <p>Quality control is job one, damage control is never included in our process, nor is it necessary. Get what you pay for: great results, not excuses.</p>
         </div>
         <div class="image">
-            <img src="<?php echo $rootDirectory; ?>images/service-selector/vct-1.png" />
+            <img src="<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-5.jpg" />
         </div>
     </div>
 </section>
@@ -87,7 +80,7 @@ include_once("../includes/header.php"); ?>
             <p>Knowing how to clean carpet effectively while keeping YOU happy is what New Life Atlanta Cleaning is all about.</p>
         </div>
         <div class="image">
-            <img src="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png" />
+            <img src="<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-6.jpg" />
         </div>
     </div>
 </section>
@@ -100,7 +93,7 @@ include_once("../includes/header.php"); ?>
             <p>We want you happy. When we quote you a price over the phone or internet, that's the price you get. There's never any extra charge for sanitizer. It's always free! Remember, we are creating loyal customers.</p>
         </div>
         <div class="image">
-            <img src="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png" />
+            <img src="<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-8.jpg" />
         </div>
     </div>
 </section>
@@ -113,7 +106,7 @@ include_once("../includes/header.php"); ?>
             <p>At New Life Atlanta Cleaning, we do care. We bring New Life to your old carpet. Making you happy is our goal.</p>
         </div>
         <div class="image">
-            <img src="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png" />
+            <img src="<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-7.jpg" />
         </div>
     </div>
 </section>
@@ -125,7 +118,7 @@ include_once("../includes/header.php"); ?>
             <p>With New Life Atlanta Cleaning, there are no corrupt business practices or any crooked deception tactics. We know we live in an upside down world now, but if integrity is important to you, you are the customer we are looking for. Give us a call today, you won't be disappointed.</p>
         </div>
         <div class="image">
-            <img src="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png" />
+            <img src="<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-9.jpg" />
         </div>
     </div>
 </section>
@@ -137,7 +130,7 @@ include_once("../includes/header.php"); ?>
             <p>At New Life Atlanta Cleaning, your satisfaction is our goal. We want to be the only company you think of when it comes to carpet and upholstery cleaning. The choice is simple: good or bad?</p>
         </div>
         <div class="image">
-            <img src="<?php echo $rootDirectory; ?>images/service-selector/carpet-1.png" />
+            <img src="<?php echo $rootDirectory; ?>images/carpet-cleaning/carpet-cleaning-10.jpg" />
         </div>
     </div>
 </section>
