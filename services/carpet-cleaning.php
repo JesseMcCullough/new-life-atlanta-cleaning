@@ -2,7 +2,9 @@
 
 $_POST["rootDirectory"] = "../";
 $_POST["title"] = "Carpet Cleaning";
-include_once("../includes/header.php"); ?>
+include_once("../includes/header.php");
+
+?>
 
 <section class="service-selector before-after">
     <div class="overlay"></div>

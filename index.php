@@ -33,20 +33,10 @@
                         data-overlay-opacity="0.5">
                     <div class="item-content" style="background-image: url('images/area-rug-cleaning/area-rug-cleaning-2.jpg')"></div>
                 </div>
-                <div class="item-container invisible service-5" data-id="4" data-title="Empty House"
-                        data-button-text="empty house cleaning" data-button-href="services/empty-house-cleaning.php"
-                        data-background-image="images/service-selector/carpet-2.png">
-                    <div class="item-content"></div>
-                </div>
-                <div class="item-container invisible service-6" data-id="5" data-title="Pet Odor"
-                        data-button-text="pet odor removal" data-button-href="services/pet-odor-removal.php"
-                        data-background-image="images/service-selector/carpet-2.png">
-                    <div class="item-content"></div>
-                </div>
-                <div class="item-container invisible service-7" data-id="6" data-title="Whole House Odor"
+                <div class="item-container invisible service-7" data-id="4" data-title="Whole House Odor"
                         data-button-text="whole house odor removal" data-button-href="services/whole-house-odor-removal.php"
-                        data-background-image="images/service-selector/carpet-2.png">
-                    <div class="item-content"></div>
+                        data-background-image="images/whole-house-odor-removal-1.jpg">
+                    <div class="item-content" style="background-image: url('images/whole-house-odor-removal-1.jpg')"></div>
                 </div>
             </div>
             <div class="right-arrow"><span>&gt;</span></div>
@@ -57,8 +47,6 @@
             <div class="dot" data-id="2"></div>
             <div class="dot" data-id="3"></div>
             <div class="dot" data-id="4"></div>
-            <div class="dot" data-id="5"></div>
-            <div class="dot" data-id="6"></div>
         </div>
         <div class="buttons">
             <a href="#" class="button secondary">Learn about&nbsp;<span class="service">VCT cleaning</span></a>

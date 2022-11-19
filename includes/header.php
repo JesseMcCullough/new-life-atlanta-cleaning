@@ -39,6 +39,10 @@ if (isset($_POST["title"])) {
     $title = $_POST["title"] . " | " . $temp;
 }
 
+$hasNavigationBackground = false;
+if (isset($_POST["hasNavigationBackground"])) {
+    $hasNavigationBackground = $_POST["hasNavigationBackground"];
+}
 
 ?>
 
@@ -52,7 +56,7 @@ if (isset($_POST["title"])) {
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-    <div class="nav">
+    <div class="nav<?php if ($hasNavigationBackground) { echo " background"; } ?>">
         <div class="container">
             <a href="<?php echo $rootDirectory; ?>index.php" class="logo"><img src="<?php echo $rootDirectory; ?>images/logo.png" /></a>
             <ul>

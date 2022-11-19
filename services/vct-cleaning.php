@@ -2,7 +2,9 @@
 
 $_POST["rootDirectory"] = "../";
 $_POST["title"] = "VCT Cleaning";
-include_once("../includes/header.php"); ?>
+include_once("../includes/header.php");
+
+?>
 
 <section class="service-selector before-after">
     <div class="overlay"></div>
@@ -43,13 +45,6 @@ include_once("../includes/header.php"); ?>
         <div class="buttons">
             <a href="<?php echo $rootDirectory; ?>schedule.php" class="button">Schedule&nbsp;<span class="service"> VCT cleaning</a>
         </div>
-    </div>
-</section>
-<section class="stats-banner">
-    <div class="container">
-        <p class="stat"><span class="highlight">99.9%</span>of germs eliminated <br />by free sanitizer</p>
-        <p class="stat"><span class="highlight">48x</span>faster drying <br />than steam cleaning</p>
-        <p class="stat"><span class="highlight">40+</span>years of <br />experience</p>
     </div>
 </section>
 <section class="about service">

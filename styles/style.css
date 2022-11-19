@@ -123,6 +123,14 @@ button:hover,
     z-index: 1;
 }
 
+.nav.background {
+    background-color: var(--blue-color);
+}
+
+.nav.background .container {
+    position: relative;
+}
+
 .nav .container,
 .service-selector .buttons {
     padding: 0 50px;
@@ -162,10 +170,10 @@ button:hover,
     list-style-type: none;
     text-decoration: none;
     color: #FFFFFF;
-    transition: color 0.4s;
 }
 
 .nav a:hover {
+    transition: color 0.4s;
     color: var(--white-hover-color);
 }
 
@@ -444,12 +452,10 @@ button:hover,
 }
 
 .service-selector .background-img-1 {
-    background-image: url("../images/service-selector/carpet-1.png");
     z-index: 1;
 }
 
 .service-selector .background-img-2 {
-    background-image: url("../images/service-selector/upholstery-1.png");
     z-index: 0;
 }
 
@@ -553,26 +559,6 @@ button:hover,
     .service-selector .service-selector-slide {
         height: 38vw;
     }
-}
-
-.service-selector .service-selector-slide .item-container.tile .item-content {
-    background-image: url("../images/service-selector/vct-1.png");
-}
-
-.service-selector .service-selector-slide .item-container.carpet .item-content {
-    background-image: url("../images/service-selector/carpet-1.png");
-}
-
-.service-selector .service-selector-slide .item-container.upholstery .item-content {
-    background-image: url("../images/service-selector/upholstery-1.png");
-}
-
-.service-selector .service-selector-slide .item-container.service-4 .item-content {
-    background-image: url("../images/service-selector/vct-2.png");
-}
-
-.service-selector .service-selector-slide .item-container.service-5 .item-content {
-    background-image: url("../images/service-selector/carpet-2.png");
 }
 
 .service-selector .service-selector-slide .item-container.left .item-content {
@@ -741,6 +727,10 @@ button:hover,
     margin-right: var(--page-padding-right);
 }
 
+.about .text.only {
+    margin: 0 !important;
+}
+
 .about .image {
     display: flex;
     flex-direction: column;
@@ -782,7 +772,6 @@ button:hover,
     .about .text {
         margin-right: 0;
         margin-bottom: 30px;
-        
     }
 
     .service.about:nth-child(odd) .container .text {
@@ -965,11 +954,11 @@ footer .services li:first-of-type {
 footer .services a {
     color: #FFFFFF;
     text-decoration: none;
-    transition: color 0.4s;
 }
 
 footer .services a:hover {
     color: var(--white-hover-color);
+    transition: color 0.4s;
 }
 
 footer .cta {
