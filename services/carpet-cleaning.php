@@ -138,8 +138,25 @@ include_once("../includes/header.php"); ?>
     <div class="container">
         <?php
         
+        $_POST["name"] = "Terrie S.";
+        $_POST["image"] = $rootDirectory . "images/customer-4-ts.jpg";
+        $_POST["location"] = "Social Circle, GA";
+        $_POST["review"] = "I was so impressed with Ken and Penny. They came in to my house and made my carpet look like new. We had our youngest son, daughter-in-law and their 6 year old daughter living with us for a year while their new house was being built. They also had a Jack Russell that stayed here as well. We have a Boxer, a Jack Russell, and a cat, so we had a house full. Needless to say the carpet was a mess. These wonderful, brave people came in and said no problem, we can make your carpet look like new. WOW, is all I can say. It LOOKS LIKE NEW!! I am so impressed and would recommend them to anyone who needs a good job done and in a timely manner. They helped move furniture, put down foil under the legs of my tables, chairs and what ever needed it. I will use them again in about 6 months, to keep my carpet looking like it does today!";
+        $_POST["rating"] = 5;
         include($rootDirectory . "includes/review.php");
+
+        $_POST["name"] = "Mary L.";
+        $_POST["image"] = $rootDirectory . "images/customer-6-maryl.jpg";
+        $_POST["location"] = "Stone Mountain, GA";
+        $_POST["review"] = "I have been using Ken McCullough and his wife for at least 15 years. They are very good and professional. Once I had a carpet emergency--dog got crazy. They came on a Sunday and did an excellent job. They have cleaned the carpet in my rental house also. I will certaily continue to use them, they are the best!!!";
+        $_POST["rating"] = 5;
         include($rootDirectory . "includes/review.php");
+
+        $_POST["name"] = "Adrian S.";
+        $_POST["image"] = $rootDirectory . "images/customer-3-as.jpg";
+        $_POST["location"] = "Atlanta, GA";
+        $_POST["review"] = "Ken and his family are awesome! They are very detailed and complete the work on time. Their method of carpet cleaning is the best type of cleaning that anyone can do to their carpet. I have tried many other types of carpet cleaning and nothing last like their work. I highly recommend them. Even when you think your carpet is gone, they bring New Life to the carpet!";
+        $_POST["rating"] = 5;
         include($rootDirectory . "includes/review.php");
         
         ?>

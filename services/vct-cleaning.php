@@ -95,8 +95,22 @@ include_once("../includes/header.php"); ?>
     <div class="container">
         <?php
         
+        $_POST["name"] = "Beth N.";
+        $_POST["location"] = "Roswell, GA";
+        $_POST["review"] = "I would highly recommend New Life Atlanta Cleaning! Ken and Penny are wonderful, honest, and efficient! We have been using their services for years and have been very pleased.";
+        $_POST["rating"] = 5;
         include($rootDirectory . "includes/review.php");
+
+        $_POST["name"] = "Rebecca B.";
+        $_POST["location"] = "Covington, GA";
+        $_POST["review"] = "We have proudly used New Life Atlanta Carpet Cleaning for 7 years. We are very pleased with their professionalism, great work ethics, and just plain PLEASANT attitude. Peace and Thanks.";
+        $_POST["rating"] = 5;
         include($rootDirectory . "includes/review.php");
+
+        $_POST["name"] = "Darlene C";
+        $_POST["location"] = "Morrow, GA";
+        $_POST["review"] = "The best people ever. Very professional to work with. Dependable always and a great job!";
+        $_POST["rating"] = 5;
         include($rootDirectory . "includes/review.php");
         
         ?>

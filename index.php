@@ -61,8 +61,8 @@
             <div class="dot" data-id="6"></div>
         </div>
         <div class="buttons">
-            <a href="#" class="button secondary">Learn about&nbsp;<span class="service">carpet cleaning</span></a>
-            <a href="schedule.php" class="button">Schedule&nbsp;<span class="service"> carpet cleaning</a>
+            <a href="#" class="button secondary">Learn about&nbsp;<span class="service">VCT cleaning</span></a>
+            <a href="schedule.php" class="button">Schedule&nbsp;<span class="service"> VCT cleaning</a>
         </div>
     </div>
 </section>
@@ -70,8 +70,7 @@
     <div class="container">
         <div class="text">
             <h2>About Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel fermentum felis. Pellentesque malesuada elit eget pulvinar mollis. Maecenas sit amet mauris et elit rhoncus commodo. Sed vitae ornare arcu, non rhoncus nulla. Vivamus euismod rutrum ante vitae cursus. Etiam lorem ipsum, convallis non lacus a, malesuada porta turpis. Suspendisse potenti. Vivamus ut mi lorem. Fusce a odio sapien. Donec nec volutpat sem, id suscipit nibh. Pellentesque dui quam, ullamcorper quis vestibulum ultricies, commodo ut mi. Aenean et scelerisque urna, vel placerat dui. Maecenas tincidunt lectus quis tempus pretium.</p>
-            <p>Quisque maximus maximus ex. Vivamus rutrum egestas metus, vel fringilla odio iaculis eget. In aliquet arcu arcu. Aenean lorem mi, pulvinar in justo nec, convallis ornare est. Aliquam et vestibulum mauris, ultricies pellentesque eros. Maecenas fermentum dui feugiat velit hendrerit lacinia. Morbi ultrices tellus sit amet mauris consectetur, ac condimentum tellus suscipit. Mauris nec neque finibus, interdum odio vitae, sodales urna.</p>
+            <p>For over 40 years, we have been exceeding the standard for  cleaning across the metro Atlanta area. We promise to treat you like family, with integrity and total fairness as you invite us out for your cleaning. You are our #1 priority!</p>
         </div>
         <div class="image">
             <div class="caption">
@@ -86,10 +85,27 @@
     <div class="container">
         <?php
         
+        $_POST["name"] = "Holly B.";
+        $_POST["image"] = "images/customer-1-hb.jpg";
+        $_POST["location"] = "Cumming, GA";
+        $_POST["review"] = "My carpets always look so nice, and smell so good after Ken and Penny are done! They are the best! And very good prices!";
+        $_POST["rating"] = 5;
         include("includes/review.php");
+
+        $_POST["name"] = "Nancy D.";
+        $_POST["image"] = "images/customer-2-nd.jpg";
+        $_POST["location"] = "Roswell, GA";
+        $_POST["review"] = "Honest, professional, timely, and reasonable. New Life Atlanta Cleaning is the best.";
+        $_POST["rating"] = 5;
         include("includes/review.php");
-        include("includes/review.php");
-        
+
+        $_POST["name"] = "Adrian S.";
+        $_POST["image"] = $rootDirectory . "images/customer-3-as.jpg";
+        $_POST["location"] = "Atlanta, GA";
+        $_POST["review"] = "Ken and his family are awesome! They are very detailed and complete the work on time. Their method of carpet cleaning is the best type of cleaning that anyone can do to their carpet. I have tried many other types of carpet cleaning and nothing last like their work. I highly recommend them. Even when you think your carpet is gone, they bring New Life to the carpet!";
+        $_POST["rating"] = 5;
+        include($rootDirectory . "includes/review.php");
+
         ?>
     </div>
 </section>

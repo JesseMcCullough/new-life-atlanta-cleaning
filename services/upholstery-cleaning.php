@@ -90,8 +90,25 @@ include_once("../includes/header.php"); ?>
     <div class="container">
         <?php
         
+        $_POST["name"] = "Gary D.";
+        $_POST["image"] = $rootDirectory . "images/customer-5-gd.jpg";
+        $_POST["location"] = "Dacula, GA";
+        $_POST["review"] = "We were thinking about purchasing new living room sofas, but Ken said he could clean them. Now they look brand new! Prompt, professional, and friendly. I would definitely recommend them!";
+        $_POST["rating"] = 5;
         include($rootDirectory . "includes/review.php");
+
+        $_POST["name"] = "Doris A.";
+        $_POST["image"] = $rootDirectory . "images/customer-8-dorisa.jpg";
+        $_POST["location"] = "Covington, GA";
+        $_POST["review"] = "They have been cleaning our upholstery and carpet since 1978 and they continue to do a fantastic job.";
+        $_POST["rating"] = 5;
         include($rootDirectory . "includes/review.php");
+
+        $_POST["name"] = "Nancy D.";
+        $_POST["image"] = $rootDirectory . "images/customer-2-nd.jpg";
+        $_POST["location"] = "Roswell, GA";
+        $_POST["review"] = "Honest, professional, timely, and reasonable. New Life Atlanta Cleaning is the best.";
+        $_POST["rating"] = 5;
         include($rootDirectory . "includes/review.php");
         
         ?>
