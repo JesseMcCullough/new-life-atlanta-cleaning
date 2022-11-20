@@ -19,7 +19,7 @@
                 <span class="or-call"><a href="tel:(678)318-1353">or Call <span class="phone">(678) 318-1353</span></a></span>
             </div>
         </div>
-        <span class="copyright">Copyright &copy; 2022 New Life Atlanta Cleaning. All rights reserved. <br />Developed by Jesse McCullough.</span>
+        <span class="copyright">Copyright &copy; 2022 New Life Atlanta Cleaning. All rights reserved. <span class="developer">Developed by Jesse McCullough.</span></span>
     </div>
 </footer>
 <script src="<?php echo $rootDirectory; ?>scripts/script.js"></script>
