@@ -2,7 +2,7 @@
     <div class="container">
         <div class="flex-container">
             <div class="logo">
-                <a href="#"><img src="<?php echo $rootDirectory; ?>images/logo.png" /></a>
+                <a href="<?php echo $rootDirectory; ?>index.php"><img src="<?php echo $rootDirectory; ?>images/logo.png" /></a>
             </div>
             <ul class="services">
                 <li>Services</li>
