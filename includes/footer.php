@@ -2,7 +2,7 @@
     <div class="container">
         <div class="flex-container">
             <div class="logo">
-                <a href="#"><img src="<?php echo $rootDirectory; ?>images/logo.png" /></a>
+                <a href="<?php echo $rootDirectory; ?>index.php"><img src="<?php echo $rootDirectory; ?>images/logo.png" /></a>
             </div>
             <ul class="services">
                 <li>Services</li>
@@ -15,11 +15,11 @@
                 <li><a href="<?php echo $rootDirectory; ?>services/whole-house-odor-removal.php">Whole House Odor Removal</a></li>
             </ul>
             <div class="cta">
-                <a href="#" class="button">Schedule cleaning</a>
+                <a href="<?php echo $rootDirectory; ?>schedule.php" class="button">Schedule cleaning</a>
                 <span class="or-call"><a href="tel:(678)318-1353">or Call <span class="phone">(678) 318-1353</span></a></span>
             </div>
         </div>
-        <span class="copyright">Copyright &copy; 2022 New Life Atlanta Cleaning. All rights reserved. Developed by Jesse McCullough.</span>
+        <span class="copyright">Copyright &copy; 2022 New Life Atlanta Cleaning. All rights reserved. <span class="developer">Developed by Jesse McCullough.</span></span>
     </div>
 </footer>
 <script src="<?php echo $rootDirectory; ?>scripts/script.js"></script>

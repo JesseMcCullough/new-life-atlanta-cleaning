@@ -49,7 +49,7 @@
             <div class="dot" data-id="4"></div>
         </div>
         <div class="buttons">
-            <a href="#" class="button secondary">Learn about&nbsp;<span class="service">VCT cleaning</span></a>
+            <a href="services/vct-cleaning.php" class="button secondary">Learn about&nbsp;<span class="service">VCT cleaning</span></a>
             <a href="schedule.php" class="button">Schedule&nbsp;<span class="service"> VCT cleaning</a>
         </div>
     </div>
