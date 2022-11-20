@@ -1125,7 +1125,7 @@ footer .developer {
 }
 
 .schedule-form {
-    min-height: 100vh;
+    min-height: min(970px, 100vh);
     background-color: var(--orange-color);
     padding-top: calc(var(--page-padding-top) * 2);
     padding-bottom: var(--page-padding-bottom);
