@@ -1133,6 +1133,9 @@ footer .copyright {
     font-size: 1.25em;
     border-radius: 10px;
     font-family: Arial;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 .schedule-form .zip-code,
