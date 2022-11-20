@@ -51,8 +51,15 @@ if (isset($_POST["hasNavigationBackground"])) {
 <head>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <meta charset="UTF-8" />
+    <meta property="og:title" content="<?php echo $title; ?>" />
+    <meta property="og:description" content="For over 40 years, we have been exceeding the standard for cleaning across the metro Atlanta area. We promise to treat you like family, with integrity and total fairness as you invite us out for your cleaning. You are our #1 priority!" />
+	<meta property="og:image" content="<?php echo $rootDirectory?>images/full-logo.png" />
+
     <link rel="stylesheet" type="text/css" href="<?php echo $rootDirectory; ?>styles/style.css" />
+    <link href="<?php echo $rootDirectory; ?>images/favicon.ico" type="image/x-icon" rel="icon" />
+    
     <title><?php echo $title; ?></title>
+    
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
