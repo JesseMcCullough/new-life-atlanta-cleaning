@@ -53,11 +53,11 @@ if (isset($_POST["hasNavigationBackground"])) {
     <meta charset="UTF-8" />
     <meta property="og:title" content="<?php echo $title; ?>" />
     <meta property="og:description" content="For over 40 years, we have been exceeding the standard for cleaning across the metro Atlanta area. We promise to treat you like family, with integrity and total fairness as you invite us out for your cleaning. You are our #1 priority!" />
-	<meta property="og:image" content="<?php echo $rootDirectory?>images/full-logo.png" />
+	<meta property="og:image" content="https://newlifeatlantacleaning.com/images/full-logo.png" />
 
     <link rel="stylesheet" type="text/css" href="<?php echo $rootDirectory; ?>styles/style.css" />
     <link href="<?php echo $rootDirectory; ?>images/favicon.ico" type="image/x-icon" rel="icon" />
-    
+
     <title><?php echo $title; ?></title>
     
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -67,7 +67,7 @@ if (isset($_POST["hasNavigationBackground"])) {
         <div class="container">
             <a href="<?php echo $rootDirectory; ?>index.php" class="logo"><img src="<?php echo $rootDirectory; ?>images/logo.png" /></a>
             <ul>
-                <li class="schedule"><a href="#">Schedule</a></li>
+                <li class="schedule"><a href="<?php echo $rootDirectory; ?>schedule.php">Schedule</a></li>
                 <li><a href="<?php echo $rootDirectory; ?>services/vct-cleaning.php">VCT</a></li>
                 <li><a href="<?php echo $rootDirectory; ?>services/carpet-cleaning.php">Carpet</a></li>
                 <li><a href="<?php echo $rootDirectory; ?>services/upholstery-cleaning.php">Upholstery</a></li>
@@ -81,7 +81,7 @@ if (isset($_POST["hasNavigationBackground"])) {
                     <img src="<?php echo $rootDirectory; ?>images/icons/phone-icon.png" />
                     (678) 318-1353
                 </a>
-                <a href="#" class="button">Schedule</a>
+                <a href="<?php echo $rootDirectory; ?>schedule.php" class="button">Schedule</a>
             </div>
             <div class="mobile-menu-icon">
                 <div class="bar"></div>
