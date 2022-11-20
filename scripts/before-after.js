@@ -7,8 +7,8 @@ let activeBackground = 1;
 const invisibleTimeouts = [];
 
 let rightOffscreenBoxOffset = 0;
-const rightOffScreenBoxLowerLimit = -100;
-const rightOffScreenBoxUpperLimit = 400;
+const rightOffScreenBoxLowerLimit = roundToOneDecimal(-moveBy * 1);
+const rightOffScreenBoxUpperLimit = roundToOneDecimal(moveBy * (maxItems - 2));
 
 let leftOffscreenBoxOffset = roundToOneDecimal(moveBy * maxItems);
 const leftOffScreenBoxOffsetLowerLimit = moveBy;
@@ -231,7 +231,7 @@ function moveItems(isForward, previousMiddle, doDotsAnimation = true, doBackgrou
 
             rightOffscreenBoxOffset = roundToOneDecimal(rightOffscreenBoxOffset + moveItemsBy);
             if (rightOffscreenBoxOffset < rightOffScreenBoxLowerLimit) {
-                rightOffscreenBoxOffset = rightOffScreenBoxUpperLimit - 100;
+                rightOffscreenBoxOffset = rightOffScreenBoxUpperLimit;
             }
 
             setTimeout(function() {
