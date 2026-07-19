@@ -8,6 +8,7 @@
                 <li>Services</li>
                 <li><a href="/services/vct-cleaning">VCT Cleaning</a></li>
                 <li><a href="/services/carpet-cleaning">Carpet Cleaning</a></li>
+                <li><a href="/services/hardwood-floor-cleaning">Hardwood Floor Cleaning</li>
                 <li><a href="/services/upholstery-cleaning">Upholstery Cleaning</a></li>
                 <li><a href="/services/area-rug-cleaning">Area Rug Cleaning</a></li>
                 <li><a href="/services/empty-house-cleaning">Empty House Cleaning</a></li>
