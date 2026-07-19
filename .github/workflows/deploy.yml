@@ -19,13 +19,15 @@ jobs:
 
             - name: Deploy public/ files
               run: |
-                  rsync -avz --delete --omit-dir-times \
+                  rsync -avz --delete \
+                  --chmod=Dg+rwX,Fg+rw \
                   -e "ssh -i ~/.ssh/deploy_key" \
                   public/ ${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.DEPLOY_PATH }}/public/
 
             - name: Deploy root-level files
               run: |
-                  rsync -avz --delete --omit-dir-times \
+                  rsync -avz --delete \
+                  --chmod=Dg+rwX,Fg+rw \
                   --exclude 'public/' \
                   --exclude '.git/' \
                   --exclude '.github/' \
