@@ -33,7 +33,7 @@ function renderHeader($options = []) {
         <meta property="og:image" content="https://newlifeatlantacleaning.com/images/full-logo.png" />
 
         <link rel="stylesheet" type="text/css" href="/styles/style.css" />
-        <link href="/images/favicon.ico" type="image/x-icon" rel="icon" />
+        <link href="/favicon.ico" type="image/x-icon" rel="icon" />
 
         <title><?php echo $options["title"]; ?></title>
         
