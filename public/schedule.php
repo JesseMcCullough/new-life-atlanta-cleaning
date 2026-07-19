@@ -1,4 +1,39 @@
-<?php include_once("includes/header.php"); ?>
+<?php 
+
+include_once(dirname($_SERVER['DOCUMENT_ROOT']) . "/includes/header.php");
+renderHeader(["title" => "Schedule Cleaning"]);
+
+$resendApiKey = $config["resend_api_key"];
+
+function sendResendEmail($toEmail, $replyTo, $subject, $htmlContent) {
+    global $mail;
+	global $resendApiKey;
+
+    $data = [
+        'from' => $mail["from"],
+        'to' => $toEmail,
+		'reply_to' => $replyTo,
+        'subject' => $subject,
+        'html' => $htmlContent
+    ];
+
+    $ch = curl_init('https://api.resend.com/emails');
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json',
+        'Authorization: Bearer ' . $resendApiKey
+    ]);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    return $httpCode === 200;
+}
+
+?>
 
 <section class="schedule-form">
     <div class="container">
@@ -87,10 +122,9 @@
 
                 if (!$recaptcha["success"]) {
                     echo '<p class="error">Verification failed. Please reverify and resubmit the form.</p>';
-                    include_once("includes/schedule-form.php");
+                    include_once(ROOT_PATH . "/includes/schedule-form.php");
                 } else {
                     $subject = "Schedule Cleaning";
-                    $headers = getMailHeaders();
                     $dateFormatted = date_format(date_create($_POST["date"]), "F j, Y");
                     $message = "Name: " . $_POST["firstName"] . " " . $_POST["lastName"] . "\n"
                             . "Phone: " . $_POST["phone"] . "\n"
@@ -102,17 +136,19 @@
                             . "Time: " . $_POST["time"] . "\n"
                             . "Description: " . $_POST["description"] . "\n";
                     
-                    if (mail($mail["address"], $subject, $message, $headers)) {
+                    $sent = sendResendEmail($mail["to"], $mail["from"], $subject, $message);
+							
+                    if ($sent) {
                         $_SESSION["completedScheduleForm"] = true;
                         echo '<p class="success">You\'re all set! We\'ll be in touch within 24 hours.</p>';
                     } else {
                         echo '<p>Something went wrong. Please try again.</p>';
-                        include_once("includes/schedule-form.php");
+                        include_once(ROOT_PATH . "/includes/schedule-form.php");
                     }
                 }
             }
         } else {
-            include_once("includes/schedule-form.php");
+            include_once(ROOT_PATH . "/includes/schedule-form.php");
         }
         
         ?>
@@ -121,7 +157,7 @@
 
 <?php
 
-include_once("includes/footer.php");
+include_once(ROOT_PATH . "/includes/footer.php");
 
 ?>
 

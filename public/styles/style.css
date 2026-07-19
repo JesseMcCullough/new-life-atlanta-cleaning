@@ -1,14 +1,14 @@
 :root {
     --page-padding-top: 50px;
     --page-padding-bottom: 50px;
-    --page-padding-left: 50px; 
+    --page-padding-left: 50px;
     --page-padding-right: 50px;
-    --text-color: #5A5A5A;
-    --blue-color: #00C7FF;
-    --blue-hover-color: #00B3E5;
-    --orange-color: #FFAF00;
-    --orange-hover-color: #E89F00;
-    --white-hover-color: #D5D5D5;
+    --text-color: #5a5a5a;
+    --blue-color: #00c7ff;
+    --blue-hover-color: #00b3e5;
+    --orange-color: #ffaf00;
+    --orange-hover-color: #e89f00;
+    --white-hover-color: #d5d5d5;
 }
 
 * {
@@ -20,7 +20,6 @@
 body {
     font-size: 16px;
     font-family: Arial;
-   
 }
 
 body.lock-scroll {
@@ -75,7 +74,7 @@ button,
     background-color: var(--orange-color);
     border-radius: 100px;
     text-decoration: none;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 1.125em;
     text-align: center;
     cursor: pointer;
@@ -95,18 +94,90 @@ button:hover,
 .button:hover {
     background-color: var(--orange-hover-color);
     color: var(--white-hover-color);
-    transition: color 0.4s, background-color 0.4s, border-color 0.4s, width 0.4s !important;
+    transition:
+        color 0.4s,
+        background-color 0.4s,
+        border-color 0.4s,
+        width 0.4s !important;
 }
 
 .button.secondary {
     background-color: transparent;
-    border-color: #FFFFFF;
+    border-color: #ffffff;
     border-width: 3px;
     border-style: solid;
 }
 
 .button.secondary:hover {
     border-color: var(--white-hover-color);
+}
+
+.notification-banner {
+    height: 30px;
+    background-color: #28942f;
+    background-image: url("../images/holiday-banner.jpg");
+}
+
+.notification-banner .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: #28942f;
+}
+
+.notification-banner p {
+    color: #ffffff;
+    line-height: 100%;
+    margin: 0;
+    margin-right: 10px;
+}
+
+.notification-banner .button {
+    height: 20px;
+    width: 150px;
+    background-color: #ffffff;
+    color: #28942f;
+    font-size: 1em;
+}
+
+.notification-banner .button:hover {
+    background-color: var(--white-hover-color);
+}
+
+@media screen and (max-width: 600px) {
+    .notification-banner {
+        height: 66px;
+    }
+
+    .notification-banner form {
+        width: 100%;
+    }
+
+    .notification-banner .content {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    .notification-banner p {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    .notification-banner .button {
+        width: 100%;
+    }
+
+    /* .nav .container {
+        top: 66px !important;
+    } */
+
+    .nav.background .container {
+        top: 0 !important;
+    }
 }
 
 .nav .container {
@@ -129,6 +200,7 @@ button:hover,
 
 .nav.background .container {
     position: relative;
+    top: 0;
 }
 
 .nav .container,
@@ -163,10 +235,14 @@ button:hover,
     margin-right: 50px;
 }
 
+.nav ul li:last-child {
+    margin-right: 0;
+}
+
 .nav a {
     list-style-type: none;
     text-decoration: none;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .nav a:hover {
@@ -211,47 +287,49 @@ button:hover,
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-	cursor: pointer;
+    cursor: pointer;
     width: 100px;
     z-index: 4;
 }
 
 .nav .mobile-menu-icon .bar {
-	width: 30px;
-	height: 3px;
-	background-color: #FFFFFF;
-	transition: transform 0.4s, background-color 0.4s;
+    width: 30px;
+    height: 3px;
+    background-color: #ffffff;
+    transition:
+        transform 0.4s,
+        background-color 0.4s;
     border-radius: 10px;
 }
 
 .nav .mobile-menu-icon:hover .bar {
-	background-color: var(--white-hover-color);
+    background-color: var(--white-hover-color);
 }
 
 .nav.active .mobile-menu-icon {
-	position: relative;
-	right: 4px;
+    position: relative;
+    right: 4px;
     top: -4px;
 }
 
 .nav .mobile-menu-icon .bar:nth-child(2) {
-	margin: 5px 0;
+    margin: 5px 0;
 }
 
 .nav.active .mobile-menu-icon .bar:nth-child(1) {
-	transform: rotate(-45deg) translate(0, 10px);
+    transform: rotate(-45deg) translate(0, 10px);
 }
 
 .nav.active .mobile-menu-icon .bar:nth-child(2) {
-	display: none;
+    display: none;
 }
 
 .nav.active .mobile-menu-icon .bar:nth-child(3) {
-	transform: rotate(45deg) translate(8px, -2px);
+    transform: rotate(45deg) translate(8px, -2px);
 }
 
 .nav.active ul {
-	left: 0;
+    left: 0;
 }
 
 .nav ul .schedule {
@@ -273,7 +351,9 @@ button:hover,
     z-index: 2;
     background-color: var(--blue-color);
     opacity: 0.7;
-    transition: left 0.6s, width 2s;
+    transition:
+        left 0.6s,
+        width 2s;
 }
 
 .nav.active .mobile-overlay {
@@ -282,7 +362,44 @@ button:hover,
     transition: left 0.6s;
 }
 
-@media screen and (max-width: 1530px) {
+.nav .dropdown-menu {
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    width: 160px;
+}
+
+.nav .dropdown-menu ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 18px;
+    left: -10px;
+    width: 100%;
+    background-color: rgba(0, 199, 255, 0.6);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.nav.background .dropdown-menu ul {
+    background-color: var(--blue-color);
+}
+
+.nav .dropdown-menu:hover ul {
+    display: flex;
+}
+
+.nav .dropdown-menu ul li {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+}
+
+.nav .dropdown-menu ul li:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 1515px) {
     :root {
         --page-padding-left: 40px;
         --page-padding-right: 40px;
@@ -326,7 +443,7 @@ button:hover,
     }
 }
 
-@media screen and (max-width: 1290px) {
+@media screen and (max-width: 1292px) {
     :root {
         --page-padding-left: 20px;
         --page-padding-right: 20px;
@@ -346,7 +463,7 @@ button:hover,
     }
 }
 
-@media screen and (max-width: 1180px) {
+@media screen and (max-width: 1192px) {
     .nav ul {
         display: none;
     }
@@ -360,30 +477,30 @@ button:hover,
     }
 
     .nav ul {
-		display: block;
-		position: absolute;
-		top: 0;
-		left: -150%;
-		width: 100%;
-		text-align: center;
-		background-color: var(--blue-color);
-		transition: left 0.6s;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 100%;
+        text-align: center;
+        background-color: var(--blue-color);
+        transition: left 0.6s;
         padding-top: 43px;
-	}
+    }
 
-	.nav ul li {
-		display: block;
-		margin: 0;
-		height: 60px;
-		line-height: 60px;
-		padding-bottom: 1%;
-	}
+    .nav ul li {
+        display: block;
+        margin: 0;
+        height: 60px;
+        line-height: 60px;
+        padding-bottom: 1%;
+    }
 
-	.nav ul li a {
-		display: block;
-		height: 100%;
-		width: 100%;
-	}
+    .nav ul li a {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
 
     .nav ul li:hover {
         background-color: var(--blue-hover-color);
@@ -394,13 +511,34 @@ button:hover,
         background-color: var(--orange-hover-color);
         transition: background-color 0.4s;
     }
+
+    .nav .dropdown-menu {
+        width: 100%;
+    }
+
+    .nav .dropdown-menu ul {
+        top: 0;
+        padding: 0;
+        left: 0;
+        background-color: var(--blue-color);
+        border-radius: 0;
+        padding-bottom: 10px;
+    }
+
+    .nav .dropdown-menu ul li {
+        margin: 0;
+    }
+
+    .nav.active .dropdown-menu ul {
+        display: flex;
+    }
 }
 
 @media screen and (max-width: 800px) {
     .nav .phone-cta .button {
         display: none;
     }
-    
+
     .nav ul .schedule {
         display: block;
         background-color: var(--orange-color);
@@ -413,7 +551,6 @@ button:hover,
     }
 }
 
-
 .service-selector {
     min-height: min(970px, 100vh);
     position: relative;
@@ -422,7 +559,7 @@ button:hover,
     padding-right: 0;
     padding-top: calc(var(--page-padding-top) * 2);
     padding-bottom: calc(var(--page-padding-bottom) * 2);
-    color: #FFFFFF;
+    color: #ffffff;
     text-align: center;
     display: flex;
     align-items: center;
@@ -438,7 +575,7 @@ button:hover,
     text-align: center;
     margin-bottom: 0;
     font-weight: bold;
-    color: #FFFFFF;
+    color: #ffffff;
     opacity: 1;
     transition: opacity 0.2s;
 }
@@ -530,12 +667,16 @@ button:hover,
     max-width: 385px;
     height: 20vw;
     max-height: 385px;
-    border: 10px solid #FFFFFF;
+    border: 10px solid #ffffff;
     border-radius: 100%;
     position: relative;
     z-index: 1;
     right: 0;
-    transition: width 0.4s, height 0.4s, right 0.4s, transform 0.4s;
+    transition:
+        width 0.4s,
+        height 0.4s,
+        right 0.4s,
+        transform 0.4s;
     cursor: pointer;
     background-repeat: no-repeat;
     background-size: cover;
@@ -569,7 +710,7 @@ button:hover,
     z-index: 1;
     position: relative;
     border-radius: 100%;
-    background-color: rgba(90, 90, 90, 0.65)
+    background-color: rgba(90, 90, 90, 0.65);
 }
 
 .service-selector .service-selector-slide .left-arrow,
@@ -634,7 +775,7 @@ button:hover,
 .service-selector .slide-dots .dot {
     width: 10px;
     height: 10px;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #ffffff;
     border-radius: 100%;
     display: inline-block;
     cursor: pointer;
@@ -642,16 +783,20 @@ button:hover,
 
 .service-selector .slide-dots .dot:hover {
     border-color: var(--white-hover-color);
-    transition: background-color 0.4s, border-color 0.4s;
+    transition:
+        background-color 0.4s,
+        border-color 0.4s;
 }
 
 .service-selector .slide-dots .dot.active:hover {
     background-color: var(--white-hover-color);
-    transition: background-color 0.4s, border-color 0.4s;
+    transition:
+        background-color 0.4s,
+        border-color 0.4s;
 }
 
 .service-selector .slide-dots .dot.active {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 
 .service-selector .button {
@@ -668,7 +813,10 @@ button:hover,
         height: 30vw;
     }
 
-    .service-selector .service-selector-slide .item-container.middle .item-content {
+    .service-selector
+        .service-selector-slide
+        .item-container.middle
+        .item-content {
         width: 35vw;
         height: 35vw;
     }
@@ -733,7 +881,10 @@ button:hover,
         height: 15vw;
     }
 
-    .service-selector .service-selector-slide .item-container.middle .item-content {
+    .service-selector
+        .service-selector-slide
+        .item-container.middle
+        .item-content {
         width: 20vw;
         height: 20vw;
     }
@@ -742,11 +893,17 @@ button:hover,
         height: 23vw;
     }
 
-    .service-selector .service-selector-slide .item-container.left .item-content {
+    .service-selector
+        .service-selector-slide
+        .item-container.left
+        .item-content {
         right: -60%;
     }
-    
-    .service-selector .service-selector-slide .item-container.right .item-content {
+
+    .service-selector
+        .service-selector-slide
+        .item-container.right
+        .item-content {
         right: 60%;
     }
 }
@@ -774,7 +931,7 @@ button:hover,
 
 .about .image img {
     object-position: 0 40px;
-    border: 10px solid #F3F3F3;
+    border: 10px solid #f3f3f3;
     border-radius: 100%;
     width: 100%;
     max-width: 600px;
@@ -828,7 +985,7 @@ button:hover,
 }
 
 .reviews .review {
-    background-color: #F6F6F6;
+    background-color: #f6f6f6;
     flex-basis: 33.3%;
     max-width: 450px;
     border-radius: 25px;
@@ -886,13 +1043,13 @@ button:hover,
         transform: none;
     }
 }
- 
+
 .cta-full-screen {
     height: 100vh;
     min-height: 400px;
     max-height: 970px;
     background-color: var(--orange-color);
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .cta-full-screen .container {
@@ -904,12 +1061,12 @@ button:hover,
 }
 
 .cta-full-screen h2 {
-    color: #FFFFFF;
+    color: #ffffff;
     text-align: center;
 }
 
 .cta-full-screen .button {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     color: var(--orange-color);
     margin-bottom: 10px;
 }
@@ -927,11 +1084,11 @@ button:hover,
 
 .or-call {
     font-size: 1.125em; /* same as button font size */
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .or-call a {
-    color: #FFFFFF;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -945,7 +1102,7 @@ button:hover,
 }
 
 footer {
-    background-color: #005C75;
+    background-color: #005c75;
     padding-bottom: 5px;
 }
 
@@ -972,7 +1129,7 @@ footer .logo img:hover {
 
 footer .services {
     list-style-type: none;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 footer .services li {
@@ -984,7 +1141,7 @@ footer .services li:first-of-type {
 }
 
 footer .services a {
-    color: #FFFFFF;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -1006,7 +1163,7 @@ footer .cta .button {
 
 footer .copyright {
     font-size: 0.7em;
-    color: #FFFFFF;
+    color: #ffffff;
     width: 230px;
     display: block;
 }
@@ -1058,7 +1215,7 @@ footer .developer {
 
 .stats-banner .stat {
     text-align: center;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 1em;
     line-height: 25px;
     width: 230px;
@@ -1080,7 +1237,6 @@ footer .developer {
         margin-bottom: 100px;
     }
 
-    
     .stats-banner .stat:last-child {
         margin-bottom: 50px;
     }
@@ -1092,7 +1248,7 @@ footer .developer {
 
 .before-after .service-selector-slide .item-container {
     width: 100%;
-    column-gap: 2%; 
+    column-gap: 2%;
 }
 
 .before-after .service-selector-slide .item-content {
@@ -1117,7 +1273,7 @@ footer .developer {
 }
 
 .service.about:nth-child(odd) .container {
-    flex-direction: row-reverse;   
+    flex-direction: row-reverse;
 }
 
 .service.about:nth-child(odd) .container .text {
@@ -1132,14 +1288,14 @@ footer .developer {
 }
 
 .schedule-form h1 {
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 4em;
     text-align: center;
 }
 
 .schedule-form p {
     text-align: center;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 1.5em;
 }
 
@@ -1163,7 +1319,7 @@ footer .developer {
 
 .schedule-form label {
     padding-left: 10px;
-    color: #FFFFFF;
+    color: #ffffff;
     display: block;
 }
 
@@ -1186,7 +1342,7 @@ footer .developer {
 .schedule-form .zip-code,
 .schedule-form .city {
     width: calc(25% - 7.5px);
-} 
+}
 
 .schedule-form .description {
     width: 100%;
@@ -1206,7 +1362,7 @@ footer .developer {
 
 .schedule-form button {
     width: 100%;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     color: var(--orange-color);
     font-size: 1.25em;
 }

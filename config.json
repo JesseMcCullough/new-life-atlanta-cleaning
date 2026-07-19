@@ -1,12 +1,9 @@
 {
     "mail": {
-        "name": "Jesse McCullough",
-        "address": "jesse@jessem.dev",
-        "to": [
-            {"name": "Jesse McCullough", "address": "jesse.mccullough@hotmail.com"},
-            {"name": "Jesse McCullough Dev", "address": "jesse@jessem.dev"}
-        ]
+        "from": "Jesse McCullough <no-reply@jessem.dev>",
+        "to": ["Jesse McCullough <jesse@jessem.dev>"]
     },
     "recaptcha_site_key": "",
-    "recaptcha_secret_key": ""
+    "recaptcha_secret_key": "",
+    "resend_api_key": ""
 }

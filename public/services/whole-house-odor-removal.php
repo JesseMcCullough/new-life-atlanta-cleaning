@@ -1,9 +1,7 @@
 <?php 
 
-$_POST["rootDirectory"] = "../";
-$_POST["title"] = "Whole House Odor Removal";
-$_POST["hasNavigationBackground"] = true;
-include_once("../includes/header.php");
+include_once(dirname($_SERVER['DOCUMENT_ROOT']) . "/includes/header.php");
+renderHeader(["title" => "Whole House Odor Removal", "hasNavigationBackground" => true]);
 
 ?>
 
@@ -18,7 +16,7 @@ include_once("../includes/header.php");
             <p>It attacks odors at their source and converts the bad bacteria into oxygen, leaving a fresh clean smell.</p>
         </div>
         <div class="image">
-            <img src="<?php echo $rootDirectory; ?>images/whole-house-odor-removal-1.jpg" />
+            <img src="/images/whole-house-odor-removal-1.jpg" />
         </div>
     </div>
 </section>
@@ -45,35 +43,15 @@ include_once("../includes/header.php");
 </section>
 <section class="reviews">
     <div class="container">
-        <?php
-        
-        $_POST["name"] = "Beth N.";
-        $_POST["location"] = "Roswell, GA";
-        $_POST["review"] = "I would highly recommend New Life Atlanta Cleaning! Ken and Penny are wonderful, honest, and efficient! We have been using their services for years and have been very pleased.";
-        $_POST["rating"] = 5;
-        include($rootDirectory . "includes/review.php");
-
-        $_POST["name"] = "Rebecca B.";
-        $_POST["location"] = "Covington, GA";
-        $_POST["review"] = "We have proudly used New Life Atlanta Carpet Cleaning for 7 years. We are very pleased with their professionalism, great work ethics, and just plain PLEASANT attitude. Peace and Thanks.";
-        $_POST["rating"] = 5;
-        include($rootDirectory . "includes/review.php");
-
-        $_POST["name"] = "Darlene C";
-        $_POST["location"] = "Morrow, GA";
-        $_POST["review"] = "The best people ever. Very professional to work with. Dependable always and a great job!";
-        $_POST["rating"] = 5;
-        include($rootDirectory . "includes/review.php");
-        
-        ?>
+        <?php include_once(ROOT_PATH . "/includes/default-reviews.php"); ?>
     </div>
 </section>
 
 <?php
 
-include_once($rootDirectory . "includes/cta-full-screen.php");
-include_once($rootDirectory . "includes/footer.php");
+include_once(ROOT_PATH . "/includes/cta-full-screen.php");
+include_once(ROOT_PATH . "/includes/footer.php");
 
 ?>
 
-<script src="<?php echo $rootDirectory; ?>scripts/before-after.js"></script>
+<script src="/scripts/before-after.js"></script>

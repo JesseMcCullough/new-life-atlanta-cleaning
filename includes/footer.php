@@ -2,26 +2,26 @@
     <div class="container">
         <div class="flex-container">
             <div class="logo">
-                <a href="<?php echo $rootDirectory; ?>index.php"><img src="<?php echo $rootDirectory; ?>images/logo.png" /></a>
+                <a href="/"><img src="/images/logo.png" /></a>
             </div>
             <ul class="services">
                 <li>Services</li>
-                <li><a href="<?php echo $rootDirectory; ?>services/vct-cleaning.php">VCT Cleaning</a></li>
-                <li><a href="<?php echo $rootDirectory; ?>services/carpet-cleaning.php">Carpet Cleaning</a></li>
-                <li><a href="<?php echo $rootDirectory; ?>services/upholstery-cleaning.php">Upholstery Cleaning</a></li>
-                <li><a href="<?php echo $rootDirectory; ?>services/area-rug-cleaning.php">Area Rug Cleaning</a></li>
-                <li><a href="<?php echo $rootDirectory; ?>services/empty-house-cleaning.php">Empty House Cleaning</a></li>
-                <li><a href="<?php echo $rootDirectory; ?>services/pet-odor-removal.php">Pet Odor Removal</a></li>
-                <li><a href="<?php echo $rootDirectory; ?>services/whole-house-odor-removal.php">Whole House Odor Removal</a></li>
+                <li><a href="/services/vct-cleaning">VCT Cleaning</a></li>
+                <li><a href="/services/carpet-cleaning">Carpet Cleaning</a></li>
+                <li><a href="/services/upholstery-cleaning">Upholstery Cleaning</a></li>
+                <li><a href="/services/area-rug-cleaning">Area Rug Cleaning</a></li>
+                <li><a href="/services/empty-house-cleaning">Empty House Cleaning</a></li>
+                <li><a href="/services/pet-odor-removal">Pet Odor Removal</a></li>
+                <li><a href="/services/whole-house-odor-removal">Whole House Odor Removal</a></li>
             </ul>
             <div class="cta">
-                <a href="<?php echo $rootDirectory; ?>schedule.php" class="button">Schedule cleaning</a>
+                <a href="/schedule" class="button">Schedule cleaning</a>
                 <span class="or-call"><a href="tel:(678)318-1353">or Call <span class="phone">(678) 318-1353</span></a></span>
             </div>
         </div>
-        <span class="copyright">Copyright &copy; 2022 New Life Atlanta Cleaning. All rights reserved. <span class="developer">Developed by Jesse McCullough.</span></span>
+        <span class="copyright">Copyright &copy; 2026 New Life Atlanta Cleaning. All rights reserved.</span>
     </div>
 </footer>
-<script src="<?php echo $rootDirectory; ?>scripts/script.js"></script>
+<script src="/scripts/script.js"></script>
 </body>
 </html>
