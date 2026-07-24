@@ -47,7 +47,7 @@ function renderHeader($options = []) {
                     <li class="schedule"><a href="/schedule">Schedule</a></li>
                     <li><a href="/services/vct-cleaning">VCT</a></li>
                     <li><a href="/services/carpet-cleaning">Carpet</a></li>
-                    <li><a href="/services/hardwood-floor-cleaning">Hardwood</li>
+                    <li><a href="/services/hardwood-floor-cleaning">Hardwood</a></li>
                     <li><a href="/services/upholstery-cleaning">Upholstery</a></li>
                     <li><a href="/services/area-rug-cleaning">Area Rug</a></li>
                     <li><a href="/services/empty-house-cleaning">Empty House</a></li>
