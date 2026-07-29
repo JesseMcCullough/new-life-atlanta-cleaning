@@ -17,8 +17,7 @@ renderHeader();
             <div class="items">
                 <div class="item-container left tile" data-id="0" data-title="Upholstery"
                         data-button-text="upholstery cleaning" data-button-href="/services/upholstery-cleaning"
-                        data-background-image="/images/upholstery-cleaning/upholstery-cleaning-1.jpg"
-                        data-overlay-opacity="0.5">
+                        data-background-image="/images/upholstery-cleaning/upholstery-cleaning-1.jpg">
                     <div class="item-content" style="background-image: url('/images/upholstery-cleaning/upholstery-cleaning-1.jpg')"></div>
                 </div>
                 <div class="item-container middle vct" data-id="1" data-title="VCT"
@@ -28,14 +27,12 @@ renderHeader();
                 </div>
                 <div class="item-container right carpet" data-id="2" data-title="Carpet"
                         data-button-text="carpet cleaning" data-button-href="/services/carpet-cleaning"
-                        data-background-image="/images/carpet-cleaning/carpet-cleaning-10.jpg"
-                        data-overlay-opacity="0.5">
+                        data-background-image="/images/carpet-cleaning/carpet-cleaning-10.jpg">
                     <div class="item-content" style="background-image: url('/images/carpet-cleaning/carpet-cleaning-10.jpg')"></div>
                 </div>
                 <div class="item-container invisible service-4" data-id="3" data-title="Area Rug"
                         data-button-text="area rug cleaning" data-button-href="/services/area-rug-cleaning"
-                        data-background-image="/images/area-rug-cleaning/area-rug-cleaning-2.jpg"
-                        data-overlay-opacity="0.5">
+                        data-background-image="/images/area-rug-cleaning/area-rug-cleaning-2.jpg">
                     <div class="item-content" style="background-image: url('/images/area-rug-cleaning/area-rug-cleaning-2.jpg')"></div>
                 </div>
                 <div class="item-container invisible service-7" data-id="4" data-title="Whole House Odor"
